@@ -22,30 +22,29 @@ const authorFormatter = new Intl.ListFormat("en", {
 
   {
     articles.length === 0 ? (
-      <p>Nothing published yet.</p>
+      <p class="empty-state">Nothing published yet.</p>
     ) : (
       <ol class="article-list">
         {articles.map((article) => (
           <li>
             <article>
-              <h2>
-                <a href={`/writing/${article.id}/`}>{article.data.title}</a>
-              </h2>
-              <p>{article.data.summary}</p>
-              <p class="article-meta">
-                <time datetime={article.data.publishedDate.toISOString()}>
-                  {article.data.publishedDate.toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                    timeZone: "UTC",
-                  })}
-                </time>
-                <span class="article-meta__authors">
-                  Directed by {authorFormatter.format(article.data.authors)} ·
-                  Written by AI agents
-                </span>
-              </p>
+              <a class="article-pill" href={`/writing/${article.id}/`}>
+                <h2>{article.data.title}</h2>
+                <p class="article-summary">{article.data.summary}</p>
+                <p class="article-meta">
+                  <time datetime={article.data.publishedDate.toISOString()}>
+                    {article.data.publishedDate.toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                      timeZone: "UTC",
+                    })}
+                  </time>
+                  <span class="article-meta__authors">
+                    Directed by {authorFormatter.format(article.data.authors)}
+                  </span>
+                </p>
+              </a>
             </article>
           </li>
         ))}

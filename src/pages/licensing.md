@@ -23,11 +23,11 @@ imply that snowball produced or approved those changes.
 
 ## How snowball is built
 
-**Founder-directed. Built entirely by AI agents.**
+**Built by AI agents**
 
-snowball's founder, Nas Delevski, sets product direction and publication
-decisions. AI agents carry out all snowball-specific production work, including
-research, design, code, testing, documentation, and writing. Third-party
+snowball's founder, Nas Delevski, directs product and publication decisions. AI
+agents carry out snowball-specific production work, including research, design,
+code, testing, documentation, and writing. Third-party
 software, data, models, infrastructure, and contributions retain their own
 attribution. snowball remains responsible for what it publishes.
 
