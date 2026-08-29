@@ -3,7 +3,7 @@ title: Draft article template
 summary: Replace this summary before publishing.
 publishedDate: 2026-08-25
 authors:
-  - Atanas Delevski
+  - Nas Delevski
 topics: []
 draft: true
 ---

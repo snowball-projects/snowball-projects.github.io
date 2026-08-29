@@ -3,7 +3,7 @@ title: Choosing a Center Is Choosing an Objective
 summary: Road graphs, competing travel-time objectives, and near-optimal regions turn different ideas of fairness into different centers.
 publishedDate: 2026-08-26
 authors:
-  - Atanas Delevski
+  - Nas Delevski
 topics:
   - Optimization
   - Geospatial computing

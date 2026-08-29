@@ -3,7 +3,7 @@
 - Write the brand name as `snowball` in lowercase everywhere, including visible copy, metadata, repository documentation, and agent instructions.
 - Treat snowball as a founder-led collection of opinionated software, not a mission, movement, startup, or community-owned product direction. Do not call an individual project open source until it has both public source and an explicit open-source license.
 - Present every snowball project as a peer. Do not invent featured, flagship, legacy, or secondary tiers.
-- Credit software to snowball and identify Atanas Delevski only as its founder unless another role is necessary. snowball software uses Apache-2.0; do not claim a repository is licensed until its source license matches.
+- Credit software to snowball and identify Nas Delevski only as its founder unless another role is necessary. snowball software uses Apache-2.0; do not claim a repository is licensed until its source license matches.
 - Classify projects only from an owner-approved source. Published dashboard items require and link to a live interface; published developer tools require and link to GitHub. Draft records may hold an approved category while awaiting that destination. Keep unclassified records neutral until their owning task supplies a decision.
 - Keep a future Finance dashboard separate from the independent finance repositories it presents; deep links do not make those repositories one package.
 - Treat Writing as snowball's blog. Store authors as a list so one or multiple contributors render without a different layout.
