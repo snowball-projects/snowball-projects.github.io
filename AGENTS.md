@@ -9,6 +9,9 @@
 - Treat Writing as snowball's blog. Store article directors in `authors` as a
   list and render them as `Directed by ...`; do not add an AI writer or author
   credit to individual posts.
+- Keep the Blog index and article presentation aligned with the shared outcome
+  contract at `../../adelevski.github.io/docs/publishing-surface.md`; keep its
+  implementation local to this repository.
 - Keep the public surface project-first and exceptionally terse. Avoid promotional heroes, repeated copy, calls to action, ornamental navigation, and platform-like features.
 - Keep current implementation, active experiments, and future vision clearly separated in public claims.
 - Keep project entries focused on scope and boundaries; keep articles focused on one technical argument. Connect them with `project` frontmatter instead of repeating prose.
