@@ -141,8 +141,27 @@ main {
 }
 
 .site-footer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  flex-wrap: wrap;
   padding-block: 1.25rem 2rem;
   border-top: 1px solid var(--line);
+}
+
+.site-provenance {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.site-provenance a {
+  text-decoration: none;
+}
+
+.site-provenance a:hover {
+  color: var(--ink);
 }
 
 .site-footer ul {

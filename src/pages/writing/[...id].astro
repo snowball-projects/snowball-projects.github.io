@@ -75,7 +75,8 @@ const authorFormatter = new Intl.ListFormat("en", {
         )
       }
       <span class="article-meta__authors">
-        {authorFormatter.format(article.data.authors)}
+        Directed by {authorFormatter.format(article.data.authors)} · Written by AI
+        agents
       </span>
     </p>
     {

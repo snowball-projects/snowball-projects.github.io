@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/ProsePageLayout.astro
 title: Licensing and identity
-description: How snowball software, attribution, and project identity are handled.
+description: How snowball software, development provenance, attribution, and project identity are handled.
 ---
 
 # Licensing and identity
@@ -20,6 +20,16 @@ Each source repository is canonical and carries its applicable license and
 notices. Distributions and derivative works must preserve them as the licenses
 require. Modified versions should state that they were changed and should not
 imply that snowball produced or approved those changes.
+
+## How snowball is built
+
+**Founder-directed. Built entirely by AI agents.**
+
+snowball's founder, Nas Delevski, sets product direction and publication
+decisions. AI agents carry out all snowball-specific production work, including
+research, design, code, testing, documentation, and writing. Third-party
+software, data, models, infrastructure, and contributions retain their own
+attribution. snowball remains responsible for what it publishes.
 
 ## Names and visual identity
 
