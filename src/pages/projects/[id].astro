@@ -5,7 +5,7 @@ import { projectHref } from "../../lib/projects";
 
 export async function getStaticPaths() {
   const projects = (await getCollection("projects")).filter(
-    (project) => !project.data.draft,
+    (project) => !project.data.draft && !project.data.category,
   );
 
   return projects.map((project) => ({

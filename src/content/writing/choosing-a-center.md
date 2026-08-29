@@ -12,13 +12,13 @@ project: modo
 draft: false
 ---
 
-MODO begins with a familiar problem: several people are starting from different places, and they want to identify a road-network region that keeps their driving times near an optimum.
+modo begins with a familiar problem: several people are starting from different places, and they want to identify a road-network region that keeps their driving times near an optimum.
 
-The problem sounds simple, but roads are not straight lines. They contain one-way streets, highways, bridges, intersections, and different travel speeds. MODO's current development version represents those details with a road graph and evaluates two different ideas of what “optimal” should mean.
+The problem sounds simple, but roads are not straight lines. They contain one-way streets, highways, bridges, intersections, and different travel speeds. modo's current development version represents those details with a road graph and evaluates two different ideas of what “optimal” should mean.
 
 ## Representing the road network
 
-MODO models the road network as:
+modo models the road network as:
 
 $$
 G=(V,E)
@@ -40,7 +40,7 @@ $$
 
 The symbol $n$ is the number of origins, while $o_i$ means origin number $i$.
 
-For a possible destination vertex $v$, MODO defines:
+For a possible destination vertex $v$, modo defines:
 
 $$
 d_G(o_i,v)
@@ -48,7 +48,7 @@ $$
 
 This is the shortest driving time through graph $G$ from origin $o_i$ to vertex $v$.
 
-Some vertices may not be reachable from every origin. MODO therefore evaluates the mutually reachable set:
+Some vertices may not be reachable from every origin. modo therefore evaluates the mutually reachable set:
 
 $$
 R=\{v\in V\mid d_G(o_i,v)<\infty\text{ for every }i\}
@@ -94,7 +94,7 @@ $$
 A^*=A(v_T^*)=\frac{T^*}{n}
 $$
 
-MODO does not need to treat only that single vertex as meaningful. Let $\Delta$ be an accepted buffer in seconds. The near-optimal total-time region is:
+modo does not need to treat only that single vertex as meaningful. Let $\Delta$ be an accepted buffer in seconds. The near-optimal total-time region is:
 
 $$
 S_{T,\Delta}
@@ -116,7 +116,7 @@ $$
 
 The second mode focuses on the traveler with the longest trip.
 
-For each candidate vertex, MODO keeps the largest individual travel time:
+For each candidate vertex, modo keeps the largest individual travel time:
 
 $$
 M(v)=\max_{1\le i\le n}d_G(o_i,v)
@@ -182,7 +182,7 @@ This gives a direct interpretation of maximum-time mode: expand every traveler�
 
 The mathematically best vertex may be only slightly better than many nearby vertices. Small changes in road speeds can also move the exact winner without materially changing the surrounding area.
 
-For that reason, MODO’s primary mathematical result is a near-optimal road region rather than only one supposedly perfect point.
+For that reason, modo’s primary mathematical result is a near-optimal road region rather than only one supposedly perfect point.
 
 The region might be:
 
@@ -191,11 +191,11 @@ The region might be:
 - Several disconnected groups of vertices.
 - A single vertex when the optimum is especially sharp.
 
-MODO can still select one exact optimum as a representative coordinate, but the surrounding region communicates the full answer.
+modo can still select one exact optimum as a representative coordinate, but the surrounding region communicates the full answer.
 
 ## Static and traffic-dependent travel times
 
-The current MODO model assigns each road edge a constant travel time:
+The current modo model assigns each road edge a constant travel time:
 
 $$
 w_e=\text{constant}
@@ -257,11 +257,11 @@ $$
 
 This says that entering the same road later should not allow someone to exit before a traveler who entered earlier. That property allows time-dependent shortest-path algorithms to behave predictably.
 
-Traffic-aware routing is not implemented in MODO yet, but these formulas extend the existing model without changing its two central objectives.
+Traffic-aware routing is not implemented in modo yet, but these formulas extend the existing model without changing its two central objectives.
 
 ## The complete idea
 
-At its core, MODO performs four steps:
+At its core, modo performs four steps:
 
 1. Represent roads as a graph.
 2. Calculate driving times from every origin.

@@ -1,6 +1,6 @@
-# adelevski.github.io
+# snowball
 
-Source for [snowball](https://adelevski.github.io), a founder-led collection of opinionated software and related technical writing.
+Source for [snowball](https://snowball-projects.github.io), a founder-led collection of opinionated software and related technical writing.
 
 The site is built with Astro and Markdown content collections, contains no client-side JavaScript, and deploys to GitHub Pages from `main`.
 
@@ -32,7 +32,7 @@ npm run verify       # all of the above
 - Keep working drafts outside this public repository; copy in only publication-ready writing.
 - Set an article's optional `project` field to a project ID to create title-only cross-links.
 - Keep the provisional, canonical public-good principles in `src/pages/principles.md`.
-- Keep source repositories canonical; portfolio records should summarize and link rather than duplicate project documentation.
+- Keep source repositories canonical; project records should summarize and link rather than duplicate project documentation.
 - Set `draft: true` in frontmatter to exclude an entry from generated pages.
 
 Schemas live in `src/content.config.ts`. A production build fails when frontmatter does not match them.
@@ -43,4 +43,4 @@ Published writing also appears in `/rss.xml`. Site-wide social previews use `pub
 
 `.github/workflows/deploy.yml` verifies, builds, and deploys the site after a push to `main`. GitHub Pages keeps the initial hosting cost at zero for this public repository. In the repository settings, **Pages → Build and deployment → Source** must be set to **GitHub Actions**.
 
-The configuration targets the user site at `https://adelevski.github.io`, so no Astro `base` path is required. Custom-domain configuration is intentionally deferred.
+The configuration targets the organization site at `https://snowball-projects.github.io`, so no Astro `base` path is required. Custom-domain configuration is intentionally deferred.

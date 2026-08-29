@@ -18,7 +18,7 @@ const {
   socialImageAlt = "snowball",
   mainClass,
 } = Astro.props;
-const pageTitle = title === "snowball" ? title : `${title} — snowball`;
+const pageTitle = title === "snowball" ? title : `${title} - snowball`;
 const path = Astro.url.pathname;
 const socialImageUrl = socialImage
   ? new URL(socialImage, Astro.site ?? Astro.url).href
