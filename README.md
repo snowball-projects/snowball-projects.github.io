@@ -44,3 +44,10 @@ Published writing also appears in `/rss.xml`. Site-wide social previews use `pub
 `.github/workflows/deploy.yml` verifies, builds, and deploys the site after a push to `main`. GitHub Pages keeps the initial hosting cost at zero for this public repository. In the repository settings, **Pages → Build and deployment → Source** must be set to **GitHub Actions**.
 
 The configuration targets the organization site at `https://snowball-projects.github.io`, so no Astro `base` path is required. Custom-domain configuration is intentionally deferred.
+
+## License and contributions
+
+This repository is licensed under the [Apache License 2.0](LICENSE). See
+[NOTICE](NOTICE) for attribution, [CONTRIBUTING.md](CONTRIBUTING.md) before
+submitting work, and the canonical [licensing and identity
+policy](src/pages/licensing.md).

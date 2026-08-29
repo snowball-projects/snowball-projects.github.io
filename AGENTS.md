@@ -11,4 +11,5 @@
 - Keep current implementation, active experiments, and future vision clearly separated in public claims.
 - Keep project entries focused on scope and boundaries; keep articles focused on one technical argument. Connect them with `project` frontmatter instead of repeating prose.
 - Keep the site static and dependency-light unless a demonstrated requirement makes client state or hosted infrastructure necessary.
+- Keep licensing and identity policy canonical in `src/pages/licensing.md`; link to it instead of duplicating it.
 - Never commit working drafts to this public repository. Add writing only after explicit publication approval.

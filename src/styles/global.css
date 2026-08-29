@@ -85,7 +85,8 @@ p {
 }
 
 .site-header,
-main {
+main,
+.site-footer {
   width: min(100% - 2.5rem, 82rem);
   margin-inline: auto;
 }
@@ -137,6 +138,15 @@ nav a[aria-current="page"] {
 
 main {
   padding-block: clamp(4.5rem, 10vw, 9rem);
+}
+
+.site-footer {
+  padding-block: 1.25rem 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.site-footer ul {
+  justify-content: flex-end;
 }
 
 .home-intro {
