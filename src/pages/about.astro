@@ -1,3 +1,18 @@
 ---
-return Astro.redirect("/", 301);
+import ProsePageLayout from "../layouts/ProsePageLayout.astro";
 ---
+
+<ProsePageLayout
+  frontmatter={{
+    title: "About",
+    description: "About snowball and its founder.",
+  }}
+>
+  <h1>About</h1>
+  <p>
+    snowball is a founder-led collection of opinionated software and related
+    technical writing. It was founded by <a href="https://adelevski.github.io"
+      >Nas Delevski</a
+    >.
+  </p>
+</ProsePageLayout>

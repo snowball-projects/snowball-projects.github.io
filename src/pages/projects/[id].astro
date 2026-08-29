@@ -1,7 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { projectHref } from "../../lib/projects";
+import { projectDetailPrimaryHref } from "../../lib/projects";
 
 export async function getStaticPaths() {
   const projects = (await getCollection("projects")).filter(
@@ -19,7 +19,7 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const primaryHref = projectHref(project);
+const primaryHref = projectDetailPrimaryHref(project);
 const primaryLabel =
   project.data.category === "dashboard"
     ? "Open dashboard"
@@ -44,7 +44,7 @@ const relatedWriting = (await getCollection("writing"))
     <h1>{project.data.title}</h1>
     <p class="project-summary">{project.data.summary}</p>
     {
-      (project.data.category || project.data.repository) && (
+      primaryHref && (
         <p class="project-links">
           <a href={primaryHref}>{primaryLabel}</a>
           {project.data.category === "dashboard" && project.data.repository && (

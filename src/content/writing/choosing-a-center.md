@@ -2,6 +2,7 @@
 title: Choosing a Center Is Choosing an Objective
 summary: Road graphs, competing travel-time objectives, and near-optimal regions turn different ideas of fairness into different centers.
 publishedDate: 2026-08-26
+updatedDate: 2026-08-29
 authors:
   - Nas Delevski
 topics:
@@ -94,22 +95,22 @@ $$
 A^*=A(v_T^*)=\frac{T^*}{n}
 $$
 
-modo does not need to treat only that single vertex as meaningful. Let $\Delta$ be an accepted buffer in seconds. The near-optimal total-time region is:
+modo does not need to treat only that single vertex as meaningful. Let $\Delta$ be an accepted buffer in seconds on the combined objective. The near-optimal total-time region is:
 
 $$
 S_{T,\Delta}
 =
-\{v\in R\mid A(v)\le A^*+\Delta\}
+\{v\in R\mid T(v)\le T^*+\Delta\}
 =
-\{v\in R\mid T(v)\le T^*+n\Delta\}
+\left\{v\in R\mid A(v)\le A^*+\frac{\Delta}{n}\right\}
 $$
 
-With a 60-second buffer, this region contains every vertex whose average trip is within one minute of the best possible average.
+With a 60-second buffer, this region contains every vertex whose combined group travel time is within one minute of the best possible total.
 
-For four travelers, that permits up to four additional minutes of combined group travel because:
+For four travelers, that is equivalent to permitting up to 15 additional seconds in the average trip because:
 
 $$
-60n=60\times4=240\text{ seconds}
+\frac{\Delta}{n}=\frac{60}{4}=15\text{ seconds}
 $$
 
 ## Maximum-time mode

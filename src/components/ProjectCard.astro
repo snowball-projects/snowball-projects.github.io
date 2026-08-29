@@ -4,10 +4,12 @@ import { projectHref } from "../lib/projects";
 
 interface Props {
   project: CollectionEntry<"projects">;
+  headingLevel?: 2 | 3;
 }
 
-const { project } = Astro.props;
+const { project, headingLevel = 2 } = Astro.props;
 const href = projectHref(project);
+const Heading = `h${headingLevel}` as "h2" | "h3";
 const destination =
   project.data.category === "dashboard"
     ? "dashboard"
@@ -22,7 +24,7 @@ const destination =
     href={href}
     aria-label={`${project.data.title} - open ${destination}`}
   >
-    <h2>{project.data.title}</h2>
+    <Heading>{project.data.title}</Heading>
     <p>{project.data.summary}</p>
   </a>
 </article>

@@ -16,3 +16,7 @@ export function projectHref(project: CollectionEntry<"projects">) {
 
   return `/projects/${project.id}/`;
 }
+
+export function projectDetailPrimaryHref(project: CollectionEntry<"projects">) {
+  return project.data.category ? projectHref(project) : project.data.repository;
+}

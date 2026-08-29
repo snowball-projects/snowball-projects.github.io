@@ -28,26 +28,29 @@ pageClass: principles-page
 7. **Cost is a design constraint**  
    Optimize for negligible marginal cost, minimal maintenance, efficient infrastructure, and sustainable operation at modest scale.
 
-8. **Reproducible and restartable**  
+8. **Computational efficiency is a feature**  
+   Minimize time, memory, bandwidth, and energy without sacrificing correctness. Measure real workloads, choose efficient algorithms and representations, and add complexity only when the improvement justifies its cost.
+
+9. **Reproducible and restartable**  
    A technically competent third party should be able to deploy, operate, and revive the project using public documentation.
 
-9. **Replaceable infrastructure**  
-   Avoid unnecessary dependence on proprietary vendors, databases, services, or maintainers that cannot be substituted.
+10. **Replaceable infrastructure**  
+    Avoid unnecessary dependence on proprietary vendors, databases, services, or maintainers that cannot be substituted.
 
-10. **Graceful dormancy**  
+11. **Graceful dormancy**  
     A project that can no longer be hosted should remain documented, forkable, and capable of being restarted later.
 
-11. **Minimal complexity**  
+12. **Minimal complexity**  
     Prefer the simplest architecture that reliably solves the problem. Add infrastructure only when demonstrated needs justify it.
 
-12. **Accessible to ordinary people**  
+13. **Accessible to ordinary people**  
     Design for mobile devices, slower connections, assistive technologies, and users without specialized technical knowledge.
 
-13. **Transparent behavior**  
+14. **Transparent behavior**  
     Explain how rankings, calculations, recommendations, and tradeoffs are produced whenever they meaningfully affect users.
 
-14. **Community stewardship**  
+15. **Community stewardship**  
     Make it possible for others to report problems, propose improvements, contribute work, and eventually share maintenance responsibility.
 
-15. **Iteration over doctrine**  
+16. **Iteration over doctrine**  
     Treat these principles as a working version. Refine them through experience building and operating real public tools.

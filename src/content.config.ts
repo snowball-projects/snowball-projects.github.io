@@ -1,6 +1,15 @@
 import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
+import { isGitHubRepositoryUrl, isSafeHttpsUrl } from "./lib/urls";
+
+const safeHttpsUrl = z.url().refine(isSafeHttpsUrl, {
+  message: "Must be an HTTPS URL without embedded credentials.",
+});
+
+const gitHubRepositoryUrl = safeHttpsUrl.refine(isGitHubRepositoryUrl, {
+  message: "Must be an HTTPS URL for a GitHub repository root.",
+});
 
 const projects = defineCollection({
   loader: glob({ base: "./src/content/projects", pattern: "**/*.md" }),
@@ -9,8 +18,8 @@ const projects = defineCollection({
       title: z.string(),
       summary: z.string(),
       category: z.enum(["dashboard", "developer"]).optional(),
-      liveUrl: z.url().optional(),
-      repository: z.url().optional(),
+      liveUrl: safeHttpsUrl.optional(),
+      repository: gitHubRepositoryUrl.optional(),
       draft: z.boolean().default(false),
     })
     .superRefine((project, context) => {
