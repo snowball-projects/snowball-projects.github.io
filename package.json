@@ -12,7 +12,7 @@
     "dev": "astro dev",
     "build": "astro build && node scripts/verify-build.mjs",
     "preview": "astro preview",
-    "test": "node --test tests/*.test.mjs",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
     "check": "astro check",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
