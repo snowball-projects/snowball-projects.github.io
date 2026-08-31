@@ -186,20 +186,8 @@ main {
   gap: clamp(0.9rem, 2vw, 1.5rem);
 }
 
-.project-groups {
-  display: grid;
-  gap: clamp(3.5rem, 7vw, 6rem);
-}
-
-.project-group__title {
-  margin-bottom: 1rem;
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-
 .project-card {
+  position: relative;
   min-width: 0;
 }
 
@@ -259,6 +247,23 @@ main {
 
 .project-card__link:hover p {
   color: #c8d0d2;
+}
+
+.project-card--has-source .project-card__link {
+  padding-bottom: clamp(4.5rem, 7vw, 6rem);
+}
+
+.project-card__source {
+  position: absolute;
+  z-index: 1;
+  bottom: clamp(1.5rem, 3.5vw, 3rem);
+  left: clamp(1.5rem, 3.5vw, 3rem);
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.project-card__source:hover {
+  color: var(--ink);
 }
 
 .prose {
@@ -474,7 +479,8 @@ main {
 @media (prefers-reduced-motion: reduce) {
   .article-pill,
   .project-card__link,
-  .project-card__link::before {
+  .project-card__link::before,
+  .project-card__source {
     transition: none;
   }
 }

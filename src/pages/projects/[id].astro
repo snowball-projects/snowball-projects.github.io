@@ -5,7 +5,7 @@ import { projectDetailPrimaryHref } from "../../lib/projects";
 
 export async function getStaticPaths() {
   const projects = (await getCollection("projects")).filter(
-    (project) => !project.data.draft && !project.data.category,
+    (project) => !project.data.draft,
   );
 
   return projects.map((project) => ({
@@ -20,12 +20,11 @@ interface Props {
 
 const { project } = Astro.props;
 const primaryHref = projectDetailPrimaryHref(project);
-const primaryLabel =
-  project.data.category === "dashboard"
-    ? "Open dashboard"
-    : project.data.category === "developer"
-      ? "GitHub"
-      : "Source";
+const primaryLabel = project.data.liveUrl
+  ? "Open interface"
+  : project.data.repository
+    ? "GitHub"
+    : undefined;
 const relatedWriting = (await getCollection("writing"))
   .filter(
     (article) => !article.data.draft && article.data.project === project.id,
@@ -44,10 +43,10 @@ const relatedWriting = (await getCollection("writing"))
     <h1>{project.data.title}</h1>
     <p class="project-summary">{project.data.summary}</p>
     {
-      primaryHref && (
+      primaryHref && primaryLabel && (
         <p class="project-links">
           <a href={primaryHref}>{primaryLabel}</a>
-          {project.data.category === "dashboard" && project.data.repository && (
+          {project.data.liveUrl && project.data.repository && (
             <>
               <span aria-hidden="true"> · </span>
               <a href={project.data.repository}>GitHub</a>

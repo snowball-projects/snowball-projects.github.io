@@ -13,40 +13,13 @@ const gitHubRepositoryUrl = safeHttpsUrl.refine(isGitHubRepositoryUrl, {
 
 const projects = defineCollection({
   loader: glob({ base: "./src/content/projects", pattern: "**/*.md" }),
-  schema: z
-    .object({
-      title: z.string(),
-      summary: z.string(),
-      category: z.enum(["dashboard", "developer"]).optional(),
-      liveUrl: safeHttpsUrl.optional(),
-      repository: gitHubRepositoryUrl.optional(),
-      draft: z.boolean().default(false),
-    })
-    .superRefine((project, context) => {
-      if (
-        !project.draft &&
-        project.category === "dashboard" &&
-        !project.liveUrl
-      ) {
-        context.addIssue({
-          code: "custom",
-          message: "A dashboard requires a liveUrl.",
-          path: ["liveUrl"],
-        });
-      }
-
-      if (
-        !project.draft &&
-        project.category === "developer" &&
-        !project.repository
-      ) {
-        context.addIssue({
-          code: "custom",
-          message: "A developer tool requires a repository.",
-          path: ["repository"],
-        });
-      }
-    }),
+  schema: z.object({
+    title: z.string(),
+    summary: z.string(),
+    liveUrl: safeHttpsUrl.optional(),
+    repository: gitHubRepositoryUrl.optional(),
+    draft: z.boolean().default(false),
+  }),
 });
 
 const writing = defineCollection({

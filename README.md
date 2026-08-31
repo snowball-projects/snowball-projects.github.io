@@ -28,7 +28,8 @@ npm run verify       # all of the above
 ## Content
 
 - Add a project record to `src/content/projects/` when its public summary is ready. Include `repository` only when the source is publicly accessible.
-- Set an owner-approved project `category` to `dashboard` with a `liveUrl`, or `developer` with a public `repository`. A draft may hold its approved category while waiting for that destination. Unclassified projects stay neutral until a decision arrives.
+- Treat projects as peers. A card opens its live interface when `liveUrl` exists, otherwise its public `repository`, and otherwise its internal detail page. When both external destinations exist, keep the repository available as the secondary source link.
+- Do not add `liveUrl` until the interface is actually deployed. A project can remain a draft or use its repository or internal detail page in the meantime.
 - Add technical articles to `src/content/writing/` only when there is substantive material to publish.
 - List every article's directors in `authors`; the same field supports one or multiple people and renders as `Directed by ...`.
 - Keep AI-production credit site-wide as the footer text `Built by AI agents`, not as an article-writing credit.

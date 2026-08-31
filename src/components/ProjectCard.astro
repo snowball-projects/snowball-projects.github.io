@@ -10,15 +10,20 @@ interface Props {
 const { project, headingLevel = 2 } = Astro.props;
 const href = projectHref(project);
 const Heading = `h${headingLevel}` as "h2" | "h3";
-const destination =
-  project.data.category === "dashboard"
-    ? "dashboard"
-    : project.data.category === "developer"
-      ? "GitHub repository"
-      : "project";
+const destination = project.data.liveUrl
+  ? "live interface"
+  : project.data.repository
+    ? "GitHub repository"
+    : "project details";
+const secondaryRepository = project.data.liveUrl && project.data.repository;
 ---
 
-<article class="project-card">
+<article
+  class:list={[
+    "project-card",
+    { "project-card--has-source": secondaryRepository },
+  ]}
+>
   <a
     class="project-card__link"
     href={href}
@@ -27,4 +32,15 @@ const destination =
     <Heading>{project.data.title}</Heading>
     <p>{project.data.summary}</p>
   </a>
+  {
+    secondaryRepository && (
+      <a
+        class="project-card__source"
+        href={secondaryRepository}
+        aria-label={`${project.data.title} source on GitHub`}
+      >
+        Source
+      </a>
+    )
+  }
 </article>

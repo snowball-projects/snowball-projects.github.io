@@ -2,53 +2,16 @@
 import { getCollection } from "astro:content";
 import ProjectCard from "../components/ProjectCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { projectCategoryLabels } from "../lib/projects";
 
 const projects = (await getCollection("projects"))
   .filter((project) => !project.data.draft)
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
-const hasCompleteClassification = projects.every(
-  (project) => project.data.category,
-);
-const projectGroups = Object.entries(projectCategoryLabels)
-  .map(([category, label]) => ({
-    category,
-    label,
-    projects: projects.filter((project) => project.data.category === category),
-  }))
-  .filter((group) => group.projects.length > 0);
 ---
 
 <BaseLayout title="snowball" description="Founder-led, opinionated software.">
   <h1 class="visually-hidden">snowball</h1>
 
-  <div>
-    {
-      hasCompleteClassification ? (
-        <div class="project-groups">
-          {projectGroups.map((group) => (
-            <section
-              class="project-group"
-              aria-labelledby={`${group.category}-heading`}
-            >
-              <h2 class="project-group__title" id={`${group.category}-heading`}>
-                {group.label}
-              </h2>
-              <div class="project-list">
-                {group.projects.map((project) => (
-                  <ProjectCard project={project} headingLevel={3} />
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
-      ) : (
-        <div class="project-list">
-          {projects.map((project) => (
-            <ProjectCard project={project} />
-          ))}
-        </div>
-      )
-    }
+  <div class="project-list">
+    {projects.map((project) => <ProjectCard project={project} />)}
   </div>
 </BaseLayout>

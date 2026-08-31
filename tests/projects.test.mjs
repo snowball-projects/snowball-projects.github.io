@@ -4,15 +4,27 @@ import test from "node:test";
 import { projectDetailPrimaryHref, projectHref } from "../src/lib/projects.ts";
 
 const repository = "https://github.com/snowball-projects/example";
-const unclassifiedProject = {
+const liveUrl = "https://example.com";
+const project = {
   id: "example",
-  data: { repository },
+  data: { liveUrl, repository },
 };
 
-test("keeps unclassified project cards on their neutral detail page", () => {
-  assert.equal(projectHref(unclassifiedProject), "/projects/example/");
+test("uses a live interface as a project's primary destination", () => {
+  assert.equal(projectHref(project), liveUrl);
+  assert.equal(projectDetailPrimaryHref(project), liveUrl);
 });
 
-test("links an unclassified project detail page to its repository", () => {
-  assert.equal(projectDetailPrimaryHref(unclassifiedProject), repository);
+test("falls back to a project's repository", () => {
+  const repositoryOnlyProject = { ...project, data: { repository } };
+
+  assert.equal(projectHref(repositoryOnlyProject), repository);
+  assert.equal(projectDetailPrimaryHref(repositoryOnlyProject), repository);
+});
+
+test("keeps a project without external destinations on its detail page", () => {
+  const internalProject = { ...project, data: {} };
+
+  assert.equal(projectHref(internalProject), "/projects/example/");
+  assert.equal(projectDetailPrimaryHref(internalProject), undefined);
 });
