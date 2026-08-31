@@ -17,6 +17,21 @@ const katexLicensePath = new URL(
   "../node_modules/katex/LICENSE",
   import.meta.url,
 );
+const expectedContentSecurityPolicy = [
+  "default-src 'self'",
+  "base-uri 'none'",
+  "connect-src 'none'",
+  "font-src 'self'",
+  "form-action 'none'",
+  "frame-src 'none'",
+  "img-src 'self'",
+  "manifest-src 'self'",
+  "media-src 'none'",
+  "object-src 'none'",
+  "script-src 'none'",
+  "style-src 'self' 'unsafe-inline'",
+  "worker-src 'none'",
+].join("; ");
 const errors = [];
 
 async function walk(directory) {
@@ -195,10 +210,30 @@ function checkHtml(file, html, outputFiles) {
       errors.push(`${label}: <html> must declare a nonempty lang attribute`);
     }
 
+    const contentSecurityPolicyTag = [...html.matchAll(/<meta\b[^>]*>/gi)].find(
+      (match) =>
+        getAttribute(match[0], "http-equiv")?.toLowerCase() ===
+        "content-security-policy",
+    )?.[0];
+
+    if (
+      !contentSecurityPolicyTag ||
+      getAttribute(contentSecurityPolicyTag, "content") !==
+        expectedContentSecurityPolicy
+    ) {
+      errors.push(`${label}: missing the expected Content Security Policy`);
+    }
+
     const mainCount = (html.match(/<main\b/gi) ?? []).length;
 
     if (mainCount !== 1) {
       errors.push(`${label}: expected exactly one <main>, found ${mainCount}`);
+    }
+
+    const mainTag = html.match(/<main\b[^>]*>/i)?.[0];
+
+    if (getAttribute(mainTag ?? "", "id") !== "main-content") {
+      errors.push(`${label}: <main> must be the skip-link target`);
     }
 
     const headings = [...html.matchAll(/<h([1-6])\b[^>]*>(.*?)<\/h\1>/gis)];
@@ -356,8 +391,18 @@ assert.ok(
 );
 assert.match(
   updatedArticle,
-  /class="article-meta__updated">\s*Updated\s*<time datetime="2026-08-29T00:00:00\.000Z">\s*August 29, 2026\s*<\/time>/,
+  /class="article-meta__updated">\s*Updated\s*<time datetime="2026-08-31T00:00:00\.000Z">\s*August 31, 2026\s*<\/time>/,
   "The corrected choosing-a-center article must render its visible updated date.",
+);
+assert.match(
+  updatedArticle,
+  /public interface deliberately uses only the maximum-time objective/,
+  "The modo article must distinguish the public objective from library APIs.",
+);
+assert.doesNotMatch(
+  updatedArticle,
+  /driving-time objective the user chooses/,
+  "The modo article must not claim that the public interface selects an objective.",
 );
 
 for (const file of outputPaths) {

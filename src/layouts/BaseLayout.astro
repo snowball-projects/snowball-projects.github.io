@@ -27,6 +27,21 @@ const navigation = [
   { href: "/writing/", label: "Blog" },
   { href: "/principles/", label: "Principles" },
 ];
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  "base-uri 'none'",
+  "connect-src 'none'",
+  "font-src 'self'",
+  "form-action 'none'",
+  "frame-src 'none'",
+  "img-src 'self'",
+  "manifest-src 'self'",
+  "media-src 'none'",
+  "object-src 'none'",
+  "script-src 'none'",
+  "style-src 'self' 'unsafe-inline'",
+  "worker-src 'none'",
+].join("; ");
 
 const isCurrent = (href: string) =>
   href === "/" ? path === href : path === href || path.startsWith(href);
@@ -36,7 +51,15 @@ const isCurrent = (href: string) =>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    {
+      import.meta.env.PROD && (
+        <meta
+          http-equiv="Content-Security-Policy"
+          content={contentSecurityPolicy}
+        />
+      )
+    }
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <meta name="color-scheme" content="dark" />
@@ -79,6 +102,7 @@ const isCurrent = (href: string) =>
     <title>{pageTitle}</title>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <a class="site-name" href="/">
         <img
@@ -107,7 +131,7 @@ const isCurrent = (href: string) =>
         </ul>
       </nav>
     </header>
-    <main class={mainClass}>
+    <main id="main-content" class={mainClass}>
       <slot />
     </main>
     <footer class="site-footer">

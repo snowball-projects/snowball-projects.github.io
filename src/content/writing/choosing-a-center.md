@@ -2,7 +2,7 @@
 title: Choosing a Center Is Choosing an Objective
 summary: Road graphs, competing travel-time objectives, and near-optimal regions turn different ideas of fairness into different centers.
 publishedDate: 2026-08-26
-updatedDate: 2026-08-29
+updatedDate: 2026-08-31
 authors:
   - Nas Delevski
 topics:
@@ -15,7 +15,7 @@ draft: false
 
 modo begins with a familiar problem: several people are starting from different places, and they want to identify a road-network region that keeps their driving times near an optimum.
 
-The problem sounds simple, but roads are not straight lines. They contain one-way streets, highways, bridges, intersections, and different travel speeds. modo's current development version represents those details with a road graph and evaluates two different ideas of what “optimal” should mean.
+The problem sounds simple, but roads are not straight lines. They contain one-way streets, highways, bridges, intersections, and different travel speeds. modo represents those details with a road graph. Its reusable library can evaluate two ideas of what “optimal” should mean, while the public interface deliberately uses only the maximum-time objective.
 
 ## Representing the road network
 
@@ -57,9 +57,9 @@ $$
 
 In plain language, $R$ contains every road vertex that all travelers can reach.
 
-## Total-time mode
+## Total-time library objective
 
-The first optimization mode minimizes the group’s combined travel time.
+The reusable Python library retains an objective that minimizes the group’s combined travel time. This objective is not offered as a choice in the public interface.
 
 For a candidate vertex $v$, add every traveler’s driving time:
 
@@ -95,7 +95,7 @@ $$
 A^*=A(v_T^*)=\frac{T^*}{n}
 $$
 
-modo does not need to treat only that single vertex as meaningful. Let $\Delta$ be an accepted buffer in seconds on the combined objective. The near-optimal total-time region is:
+The library does not need to treat only that single vertex as meaningful. Let $\Delta$ be an accepted buffer in seconds on the combined objective. The near-optimal total-time region is:
 
 $$
 S_{T,\Delta}
@@ -113,9 +113,9 @@ $$
 \frac{\Delta}{n}=\frac{60}{4}=15\text{ seconds}
 $$
 
-## Maximum-time mode
+## Maximum-time product objective
 
-The second mode focuses on the traveler with the longest trip.
+The public interface focuses on the traveler with the longest trip.
 
 For each candidate vertex, modo keeps the largest individual travel time:
 
@@ -145,7 +145,7 @@ $$
 
 With a 60-second buffer, this contains every vertex where the longest individual trip remains within one minute of the best possible longest trip.
 
-Total-time mode minimizes the group’s combined burden. Maximum-time mode protects the person facing the longest drive. Neither objective is universally better. They answer different versions of the same question.
+The total-time library objective minimizes the group’s combined burden. The maximum-time objective protects the person facing the longest drive. They answer different versions of the same question; modo’s public interface fixes that product decision in favor of maximum time rather than asking users to choose.
 
 ## Understanding the maximum-time region through isochrones
 
@@ -218,7 +218,7 @@ $$
 d_G(o_i,v;t_0)
 $$
 
-The two objectives become time-specific:
+Both library objectives would become time-specific:
 
 $$
 T(v,t_0)
@@ -232,7 +232,7 @@ M(v,t_0)
 \max_{1\le i\le n}d_G(o_i,v;t_0)
 $$
 
-If $f$ represents whichever objective was selected, the time-specific region is:
+If $f$ represents whichever library objective is being evaluated, the time-specific region is:
 
 $$
 S_\Delta(t_0)
@@ -258,15 +258,15 @@ $$
 
 This says that entering the same road later should not allow someone to exit before a traveler who entered earlier. That property allows time-dependent shortest-path algorithms to behave predictably.
 
-Traffic-aware routing is not implemented in modo yet, but these formulas extend the existing model without changing its two central objectives.
+Traffic-aware routing is not implemented in modo yet. These formulas could extend both library objectives, while the public product would remain focused on maximum time.
 
 ## The complete idea
 
-At its core, modo performs four steps:
+At its core, modo’s public interface performs four steps:
 
 1. Represent roads as a graph.
 2. Calculate driving times from every origin.
-3. Combine those times using either total-time or maximum-time mode.
-4. Return every road vertex within the accepted buffer of the optimum.
+3. Minimize the longest individual driving time.
+4. Return every road vertex within 60 seconds of that optimum.
 
-The result is not merely a midpoint on a map. It is a road-network region defined by the driving-time objective the user chooses.
+The result is not merely a midpoint on a map. It is a road-network region defined by modo’s fixed maximum-time objective.

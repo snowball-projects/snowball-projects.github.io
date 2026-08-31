@@ -64,6 +64,22 @@ a:focus-visible {
   border-radius: 2px;
 }
 
+.skip-link {
+  position: fixed;
+  z-index: 10;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 0.35rem;
+  color: var(--ink);
+  background: var(--surface);
+  transform: translateY(calc(-100% - 1.5rem));
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
 h1,
 h2,
 h3 {
@@ -98,6 +114,7 @@ main,
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
+  flex-wrap: wrap;
   min-height: 5.75rem;
   border-bottom: 1px solid var(--line);
 }
@@ -169,15 +186,6 @@ main {
 
 .site-footer ul {
   justify-content: flex-end;
-}
-
-.home-intro {
-  max-width: 34rem;
-  margin-bottom: clamp(4rem, 9vw, 7.5rem);
-  color: var(--muted);
-  font-size: clamp(1.15rem, 2vw, 1.45rem);
-  line-height: 1.45;
-  letter-spacing: -0.025em;
 }
 
 .project-list {
