@@ -33,18 +33,13 @@ attribution. snowball remains responsible for what it publishes.
 
 ## Names and visual identity
 
-The software license does not grant permission to use the snowball, modo, or
-fairway names, logos, or other identifiers except for accurate, customary
-statements about a work's origin.
+The software license does not grant rights to the snowball, modo, or fairway
+names, logos, or other identifiers beyond accurate references to a work's
+origin. Forks and derivatives should use distinct identities and must not imply
+official origin, sponsorship, or endorsement.
 
-Factual references, links, and accurate descriptions of compatibility are
-welcome. Except as permitted by law, permission is required for uses in a
-product, service, organization, domain, or visual presentation that could imply
-official snowball origin, sponsorship, or endorsement. Forks should use a
-distinct identity and describe their relationship to the original accurately.
-
-This policy does not limit rights provided by law or state that any identifier
-is registered.
+This does not limit rights provided by law or claim that any identifier is
+registered.
 
 ## Official services
 

@@ -16,38 +16,26 @@ npm ci
 npm run dev
 ```
 
-Available checks:
+Run the complete check suite with:
 
 ```sh
-npm run check        # Astro, TypeScript, and content-schema checks
-npm run format:check # formatting check
-npm run build        # production build
-npm run verify       # all of the above
+npm run verify
 ```
 
 ## Content
 
-- Add a project record to `src/content/projects/` when its public summary is ready. Include `repository` only when the source is publicly accessible.
-- Treat projects as peers. A card opens its live interface when `liveUrl` exists, otherwise its public `repository`, and otherwise its internal detail page. When both external destinations exist, keep the repository available as the secondary source link.
-- Do not add `liveUrl` until the interface is actually deployed. A project can remain a draft or use its repository or internal detail page in the meantime.
-- Add technical articles to `src/content/writing/` only when there is substantive material to publish.
-- List every article's directors in `authors`; the same field supports one or multiple people and renders as `Directed by ...`.
-- Keep AI-production credit site-wide as the footer text `Built by AI agents`, not as an article-writing credit.
-- Keep working drafts outside this public repository; copy in only publication-ready writing.
-- Set an article's optional `project` field to a project ID to create title-only cross-links.
-- Keep the provisional, canonical public-good principles in `src/pages/principles.md`.
-- Keep source repositories canonical; project records should summarize and link rather than duplicate project documentation.
-- Set `draft: true` in frontmatter to exclude an entry from generated pages.
+- Put only publication-ready records in `src/content/projects/` and `src/content/writing/`. Keep working drafts elsewhere; `draft: true` excludes a record.
+- Treat projects as peers. Add `liveUrl` only after deployment. Cards prefer the live interface, then the public repository, then the internal page; source repositories remain canonical.
+- Article `authors` are directors. The optional `project` field adds a title-only project link, and published writing appears in `/rss.xml`.
+- Keep the canonical principles and licensing policy in `src/pages/`; link to them instead of duplicating them.
 
 Schemas live in `src/content.config.ts`. A production build fails when frontmatter does not match them.
 
-Published writing also appears in `/rss.xml`. Site-wide social previews use `public/og.png`; project and article pages omit inherited images unless they gain their own relevant visual.
+Site-wide social previews use `public/og.png`; project and article pages omit inherited images unless they gain their own relevant visual.
 
 ## Deployment
 
-`.github/workflows/deploy.yml` verifies, builds, and deploys the site after a push to `main`. GitHub Pages keeps the initial hosting cost at zero for this public repository. In the repository settings, **Pages → Build and deployment → Source** must be set to **GitHub Actions**.
-
-The configuration targets the organization site at `https://snowball-projects.github.io`, so no Astro `base` path is required. Custom-domain configuration is intentionally deferred.
+`.github/workflows/deploy.yml` verifies, builds, and deploys after a push to `main`. In repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.
 
 ## License and contributions
 

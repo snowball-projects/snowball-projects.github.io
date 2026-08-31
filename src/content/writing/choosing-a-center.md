@@ -5,10 +5,6 @@ publishedDate: 2026-08-26
 updatedDate: 2026-08-31
 authors:
   - Nas Delevski
-topics:
-  - Optimization
-  - Geospatial computing
-  - Graph algorithms
 project: modo
 draft: false
 ---
@@ -39,15 +35,13 @@ $$
 o_1,o_2,\ldots,o_n
 $$
 
-The symbol $n$ is the number of origins, while $o_i$ means origin number $i$.
-
 For a possible destination vertex $v$, modo defines:
 
 $$
 d_G(o_i,v)
 $$
 
-This is the shortest driving time through graph $G$ from origin $o_i$ to vertex $v$.
+This is the shortest driving time from origin $o_i$ to vertex $v$.
 
 Some vertices may not be reachable from every origin. modo therefore evaluates the mutually reachable set:
 
@@ -55,63 +49,27 @@ $$
 R=\{v\in V\mid d_G(o_i,v)<\infty\text{ for every }i\}
 $$
 
-In plain language, $R$ contains every road vertex that all travelers can reach.
+$R$ contains every road vertex that all travelers can reach.
 
 ## Total-time library objective
 
-The reusable Python library retains an objective that minimizes the group’s combined travel time. This objective is not offered as a choice in the public interface.
-
-For a candidate vertex $v$, add every traveler’s driving time:
+For a candidate vertex $v$, the reusable Python library can instead minimize the group’s combined travel time:
 
 $$
 T(v)=\sum_{i=1}^{n}d_G(o_i,v)
 $$
 
-The symbol $\sum$ means “add all of these values.”
-
-The average travel time is:
+The best total time and its near-optimal region are:
 
 $$
-A(v)=\frac{T(v)}{n}
+T^*=\min_{v\in R}T(v)
 $$
 
-Minimizing the total and minimizing the average produce the same optimal vertex:
-
 $$
-v_T^*=\arg\min_{v\in R}T(v)
+S_{T,\Delta}=\{v\in R\mid T(v)\le T^*+\Delta\}
 $$
 
-The expression $\arg\min$ means “return the vertex that produces the smallest value.” The star indicates an optimal result.
-
-The best total time is:
-
-$$
-T^*=T(v_T^*)
-$$
-
-The best average travel time is:
-
-$$
-A^*=A(v_T^*)=\frac{T^*}{n}
-$$
-
-The library does not need to treat only that single vertex as meaningful. Let $\Delta$ be an accepted buffer in seconds on the combined objective. The near-optimal total-time region is:
-
-$$
-S_{T,\Delta}
-=
-\{v\in R\mid T(v)\le T^*+\Delta\}
-=
-\left\{v\in R\mid A(v)\le A^*+\frac{\Delta}{n}\right\}
-$$
-
-With a 60-second buffer, this region contains every vertex whose combined group travel time is within one minute of the best possible total.
-
-For four travelers, that is equivalent to permitting up to 15 additional seconds in the average trip because:
-
-$$
-\frac{\Delta}{n}=\frac{60}{4}=15\text{ seconds}
-$$
+This minimizes aggregate burden, but it is not exposed in the public interface.
 
 ## Maximum-time product objective
 
@@ -145,7 +103,7 @@ $$
 
 With a 60-second buffer, this contains every vertex where the longest individual trip remains within one minute of the best possible longest trip.
 
-The total-time library objective minimizes the group’s combined burden. The maximum-time objective protects the person facing the longest drive. They answer different versions of the same question; modo’s public interface fixes that product decision in favor of maximum time rather than asking users to choose.
+The two objectives answer different questions. modo’s public interface fixes the choice in favor of the longest drive rather than asking users to decide.
 
 ## Understanding the maximum-time region through isochrones
 
@@ -167,8 +125,6 @@ M^*
 \min\{r\mid\bigcap_i B_i(r)\ne\varnothing\}
 $$
 
-The symbol $\bigcap$ means intersection, or the region shared by all the sets. The symbol $\varnothing$ means an empty set.
-
 Once $M^*$ is known, the near-optimal region is:
 
 $$
@@ -177,7 +133,7 @@ S_{M,\Delta}
 \bigcap_i B_i(M^*+\Delta)
 $$
 
-This gives a direct interpretation of maximum-time mode: expand every traveler’s reachable region until they overlap, then include the shared vertices allowed by the buffer.
+Expand every traveler’s reachable region until they overlap, then include the shared vertices allowed by the buffer.
 
 ## Why the result is a region
 
@@ -185,88 +141,8 @@ The mathematically best vertex may be only slightly better than many nearby vert
 
 For that reason, modo’s primary mathematical result is a near-optimal road region rather than only one supposedly perfect point.
 
-The region might be:
+The region may be a compact cluster, road corridor, disconnected set, or single vertex. modo selects one exact optimum for route display, while the region communicates the broader answer.
 
-- A compact cluster of intersections.
-- A corridor following a fast road.
-- Several disconnected groups of vertices.
-- A single vertex when the optimum is especially sharp.
+## Limits
 
-modo can still select one exact optimum as a representative coordinate, but the surrounding region communicates the full answer.
-
-## Static and traffic-dependent travel times
-
-The current modo model assigns each road edge a constant travel time:
-
-$$
-w_e=\text{constant}
-$$
-
-Here, $w_e$ is the time required to traverse edge $e$.
-
-Future traffic-aware routing would make that cost depend on when the traveler enters the edge:
-
-$$
-w_e(t)
-=
-\text{time to traverse edge }e\text{ when entered at time }t
-$$
-
-The shortest route would then depend on the requested departure time $t_0$:
-
-$$
-d_G(o_i,v;t_0)
-$$
-
-Both library objectives would become time-specific:
-
-$$
-T(v,t_0)
-=
-\sum_{i=1}^{n}d_G(o_i,v;t_0)
-$$
-
-$$
-M(v,t_0)
-=
-\max_{1\le i\le n}d_G(o_i,v;t_0)
-$$
-
-If $f$ represents whichever library objective is being evaluated, the time-specific region is:
-
-$$
-S_\Delta(t_0)
-=
-\{v\mid f(v,t_0)\le f^*(t_0)+\Delta\}
-$$
-
-This allows the optimal road region to change with expected traffic.
-
-For an arrive-by calculation, let $T$ be the required arrival time and let $L_i(v,T)$ be the latest time traveler $i$ can leave and still reach $v$ by $T$. The trip duration is:
-
-$$
-D_i(v,T)=T-L_i(v,T)
-$$
-
-A time-dependent road model should also satisfy the FIFO property:
-
-$$
-t_2\ge t_1
-\Rightarrow
-t_2+w_e(t_2)\ge t_1+w_e(t_1)
-$$
-
-This says that entering the same road later should not allow someone to exit before a traveler who entered earlier. That property allows time-dependent shortest-path algorithms to behave predictably.
-
-Traffic-aware routing is not implemented in modo yet. These formulas could extend both library objectives, while the public product would remain focused on maximum time.
-
-## The complete idea
-
-At its core, modo’s public interface performs four steps:
-
-1. Represent roads as a graph.
-2. Calculate driving times from every origin.
-3. Minimize the longest individual driving time.
-4. Return every road vertex within 60 seconds of that optimum.
-
-The result is not merely a midpoint on a map. It is a road-network region defined by modo’s fixed maximum-time objective.
+Current results use static edge costs, not traffic or departure time. The routed optimum is a deterministic representative of the region, not a venue recommendation.
