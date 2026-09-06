@@ -26,7 +26,7 @@ npm run verify
 
 - Put only publication-ready records in `src/content/projects/` and `src/content/writing/`. Keep working drafts elsewhere; `draft: true` excludes a record.
 - Treat projects as peers. Add `liveUrl` only after deployment. Cards prefer the live interface, then the public repository, then the internal page; source repositories remain canonical.
-- Article `authors` are directors. The optional `project` field adds a title-only project link, and published writing appears in `/rss.xml`.
+- Article `authors` are displayed by name, without a role label. The optional `project` field adds a title-only project link, and published writing appears in `/rss.xml`.
 - Keep the canonical principles and licensing policy in `src/pages/`; link to them instead of duplicating them.
 
 Schemas live in `src/content.config.ts`. A production build fails when frontmatter does not match them.

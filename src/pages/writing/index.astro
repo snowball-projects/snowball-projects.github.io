@@ -41,7 +41,7 @@ const authorFormatter = new Intl.ListFormat("en", {
                     })}
                   </time>
                   <span class="article-meta__authors">
-                    Directed by {authorFormatter.format(article.data.authors)}
+                    {authorFormatter.format(article.data.authors)}
                   </span>
                 </p>
               </a>

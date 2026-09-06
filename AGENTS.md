@@ -6,9 +6,9 @@
 - Credit software to snowball and identify Nas Delevski only as its founder unless another role is necessary. snowball software uses Apache-2.0; do not claim a repository is licensed until its source license matches.
 - Present projects as flat peers rather than grouping them by packaging. A project opens its live interface when one exists, otherwise its public repository, and otherwise its internal detail page. Keep the repository available as a secondary source link when a live interface is primary. Never claim a live interface before it is deployed.
 - Keep a future Finance dashboard separate from the independent finance repositories it presents; deep links do not make those repositories one package.
-- Treat Writing as snowball's blog. Store article directors in `authors` as a
-  list and render them as `Directed by ...`; do not add an AI writer or author
-  credit to individual posts.
+- Treat Writing as snowball's blog. Store article authors in `authors` as a
+  list and render only their names on index and article pages; do not add an AI
+  writer or author credit to individual posts.
 - Keep the Blog index and article presentation aligned with the shared outcome
   contract at `../../adelevski.github.io/docs/publishing-surface.md`; keep its
   implementation local to this repository.
