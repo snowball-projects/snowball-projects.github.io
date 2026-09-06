@@ -383,28 +383,6 @@ const outputFiles = new Map(
   ),
 );
 
-const updatedArticle = outputFiles.get("writing/choosing-a-center/index.html");
-
-assert.ok(
-  updatedArticle,
-  "The corrected choosing-a-center article must be present in the build.",
-);
-assert.match(
-  updatedArticle,
-  /class="article-meta__updated">\s*Updated\s*<time datetime="2026-08-31T00:00:00\.000Z">\s*August 31, 2026\s*<\/time>/,
-  "The corrected choosing-a-center article must render its visible updated date.",
-);
-assert.match(
-  updatedArticle,
-  /public interface deliberately uses only the maximum-time objective/,
-  "The modo article must distinguish the public objective from library APIs.",
-);
-assert.doesNotMatch(
-  updatedArticle,
-  /driving-time objective the user chooses/,
-  "The modo article must not claim that the public interface selects an objective.",
-);
-
 for (const file of outputPaths) {
   const contents = outputFiles.get(outputRelativePath(file));
 

@@ -1,23 +1,64 @@
-- Read `src/pages/principles.md` before changing the site's public-good framing, project philosophy, or related editorial content.
-- Treat those principles as provisional but canonical. Do not silently rewrite, expand, or duplicate them.
-- Write the brand name as `snowball` in lowercase everywhere, including visible copy, metadata, repository documentation, and agent instructions.
-- Treat snowball as a founder-led collection of opinionated software, not a mission, movement, startup, or community-owned product direction. Do not call an individual project open source until it has both public source and an explicit open-source license.
-- Present every snowball project as a peer. Do not invent featured, flagship, legacy, or secondary tiers.
-- Credit software to snowball and identify Nas Delevski only as its founder unless another role is necessary. snowball software uses Apache-2.0; do not claim a repository is licensed until its source license matches.
-- Present projects as flat peers rather than grouping them by packaging. A project opens its live interface when one exists, otherwise its public repository, and otherwise its internal detail page. Keep the repository available as a secondary source link when a live interface is primary. Never claim a live interface before it is deployed.
-- Keep a future Finance dashboard separate from the independent finance repositories it presents; deep links do not make those repositories one package.
-- Treat Writing as snowball's blog. Store article authors in `authors` as a
-  list and render only their names on index and article pages; do not add an AI
-  writer or author credit to individual posts.
-- Keep the Blog index and article presentation aligned with the shared outcome
-  contract at `../../adelevski.github.io/docs/publishing-surface.md`; keep its
-  implementation local to this repository.
-- Keep the public surface project-first and exceptionally terse. Avoid promotional heroes, repeated copy, calls to action, ornamental navigation, and platform-like features.
-- Keep current implementation, active experiments, and future vision clearly separated in public claims.
-- Keep project entries focused on scope and boundaries; keep articles focused on one technical argument. Connect them with `project` frontmatter instead of repeating prose.
-- Keep the site static and dependency-light unless a demonstrated requirement makes client state or hosted infrastructure necessary.
-- Keep licensing, identity, and development provenance canonical in
-  `src/pages/licensing.md`; link to it instead of duplicating it. Preserve the
-  exact short provenance statement `Built by AI agents` in the footer and
-  repository README without qualifiers.
-- Never commit working drafts to this public repository. Add writing only after explicit publication approval.
+# snowball website
+
+## Work and verification
+
+- Use Node 24 (`nvm use`) and `npm ci`; keep the lockfile authoritative.
+- `npm run dev` starts a preview; `npm run verify` runs unit tests, Astro/content
+  checks, formatting, the production build, and generated-link, accessibility,
+  and notice checks. Run it before publishing.
+- Read the existing diff before editing and preserve unrelated work. Add tests
+  for behavior and regressions, not prose snapshots. Keep detailed procedures in
+  the README and durable agent rules here; `CLAUDE.md` imports this file.
+- Pushes to `main` deploy through `.github/workflows/deploy.yml`. Verify the
+  workflow and live routes before reporting publication. Tie releases to a
+  verified commit; do not force-push shared history.
+
+## Sources and identity
+
+- Read `src/pages/principles.md` before changes to public claims, product
+  direction, data, architecture, operations, or stewardship. It is provisional
+  but canonical; do not silently rewrite, expand, or duplicate it.
+- Write `snowball` in lowercase. Credit software to snowball and identify Nas
+  Delevski as its founder unless another role is necessary.
+- snowball is founder-led. Contributions may be welcome; final product direction
+  remains with the founder. Do not invent a mission, movement, or community
+  consensus.
+- Projects are peers. Do not invent flagship, featured, legacy, or secondary
+  tiers. Classify only from an owner-approved source; keep unclassified work
+  neutral. Published dashboards require a live interface; published developer
+  tools require GitHub. Do not claim an interface before deployment succeeds.
+- Cards open the verified live interface when present, otherwise the public
+  repository, otherwise the internal page. Keep repository links available and
+  each source repository canonical.
+- Keep a future Finance dashboard separate from the independent finance
+  repositories it presents.
+- snowball software uses Apache-2.0. Verify public source and its actual license
+  before calling a project open source or licensed. Preserve `LICENSE`, `NOTICE`,
+  and applicable third-party notices.
+- Keep the reuse summary in `src/pages/about.astro` at `#licensing`; preserve
+  `/licensing/` as a redirect. Repositories own their licenses and notices;
+  third-party software and data retain their terms.
+- Do not add AI-builder labels, production credits, or AI author credits to
+  public copy, metadata, or the README.
+
+## Content and implementation
+
+- Keep public surfaces terse, project-first, and static. Avoid promotional
+  heroes, repeated explanations, ornamental navigation, and platform features.
+  Add dependencies or infrastructure only for demonstrated needs.
+- Distinguish current behavior, experiments, and future ideas. Explain
+  calculations and consequential tradeoffs; fail clearly on insufficient inputs.
+- Treat Writing as snowball's blog. Store `authors` as a nonempty list and render
+  names only. Connect articles with `project` frontmatter instead of duplicating
+  project documentation.
+- Keep drafts outside this public repository. `draft: true` hides build output,
+  not Git source. Publish with user authorization; preserve slugs and
+  `publishedDate`, and set `updatedDate` for approved revisions.
+- Schemas live in `src/content.config.ts`; shared content and destination
+  checks live in `src/lib/`. Validate at these boundaries.
+- Follow the personal site's `docs/publishing-surface.md` outcome contract when
+  that checkout is available. Keep implementations local; add a shared package
+  only if repeated coordinated changes demonstrate a need.
+- Preserve keyboard access, visible focus, narrow layouts, reduced motion, and
+  the script-free production CSP. Never commit secrets, private drafts, analytics,
+  advertising, or tracking.
