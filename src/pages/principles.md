@@ -1,56 +1,46 @@
 ---
 layout: ../layouts/ProsePageLayout.astro
-title: Principles for Digital Public Goods
+title: Principles
 description: Provisional working principles for building and operating useful public software.
 pageClass: principles-page
 ---
 
 <h1 class="visually-hidden">Principles</h1>
 
-1. **Public benefit comes first**  
-   Build tools that solve real problems without optimizing for engagement, lock-in, or profit extraction.
+These are working principles, revised through experience building and operating snowball's tools.
+
+1. **Usefulness comes first**  
+   Build tools that solve real problems without optimizing for engagement, lock-in, or extraction.
 
 2. **Open by default**  
    Publish the source code, deployment configuration, operating model, and major technical decisions.
 
-3. **Privacy through minimization**  
-   Collect and retain only the data strictly necessary to provide the service.
+3. **Privacy without surveillance**  
+   Collect and retain only what the service needs. No advertising, behavioral profiling, or sale of user data.
 
-4. **No surveillance or advertising**  
-   Do not sell user data, build behavioral profiles, use tracking-based monetization, or display ads.
+4. **Control over your own work**  
+   Keep data portable, preserve original inputs when transforming users' work, and make destructive actions deliberate and reversible where practical.
 
 5. **Equal access**  
    Donors and non-donors receive the same functionality and quality of service, aside from necessary abuse controls.
 
 6. **Transparent finances**  
-   Publicly disclose operating costs, contributions, reserves, and major spending decisions.
+   Publish snowball's operating costs, funding totals, reserves, and major spending decisions.
 
-7. **Cost is a design constraint**  
-   Optimize for negligible marginal cost, minimal maintenance, efficient infrastructure, and sustainable operation at modest scale.
+7. **Simple, sustainable operation**  
+   Choose the simplest reliable design, treating operating cost and maintenance as constraints. Add infrastructure only for demonstrated needs.
 
 8. **Computational efficiency is a feature**  
-   Minimize time, memory, bandwidth, and energy without sacrificing correctness. Measure real workloads, choose efficient algorithms and representations, and add complexity only when the improvement justifies its cost.
+   Measure time, memory, bandwidth, and energy on real workloads. Improve them without sacrificing correctness.
 
-9. **Reproducible and restartable**  
-   A technically competent third party should be able to deploy, operate, and revive the project using public documentation.
+9. **Built to be continued**  
+   Keep projects forkable and document how to deploy, operate, and revive them. Avoid unnecessary dependence on particular vendors or maintainers.
 
-10. **Replaceable infrastructure**  
-    Avoid unnecessary dependence on proprietary vendors, databases, services, or maintainers that cannot be substituted.
-
-11. **Graceful dormancy**  
-    A project that can no longer be hosted should remain documented, forkable, and capable of being restarted later.
-
-12. **Minimal complexity**  
-    Prefer the simplest architecture that reliably solves the problem. Add infrastructure only when demonstrated needs justify it.
-
-13. **Accessible to ordinary people**  
+10. **Accessible to ordinary people**  
     Design for mobile devices, slower connections, assistive technologies, and users without specialized technical knowledge.
 
-14. **Transparent behavior**  
-    Explain how rankings, calculations, recommendations, and tradeoffs are produced whenever they meaningfully affect users.
+11. **Explain results and limits**  
+    Make consequential calculations and tradeoffs understandable. State assumptions, uncertainty, and coverage limits, and fail clearly when a reliable result is unavailable.
 
-15. **Community stewardship**  
-    Make it possible for others to report problems, propose improvements, contribute work, and eventually share maintenance responsibility.
-
-16. **Iteration over doctrine**  
-    Treat these principles as a working version. Refine them through experience building and operating real public tools.
+12. **Open contribution, clear responsibility**  
+    Make it easy to report problems and contribute improvements. Keep responsibility for maintenance and product direction clear.

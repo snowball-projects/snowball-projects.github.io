@@ -32,7 +32,7 @@
   each source repository canonical.
 - Keep a future Finance dashboard separate from the independent finance
   repositories it presents.
-- snowball software uses Apache-2.0. Verify public source and its actual license
+- snowball software uses MIT. Verify public source and its actual license
   before calling a project open source or licensed. Preserve `LICENSE`, `NOTICE`,
   and applicable third-party notices.
 - Keep the reuse summary in `src/pages/about.astro` at `#licensing`; preserve

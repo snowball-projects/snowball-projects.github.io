@@ -39,6 +39,6 @@ Site-wide social previews use `public/og.png`; project and article pages omit in
 
 ## License and contributions
 
-This repository is licensed under the [Apache License 2.0](LICENSE). See
+This repository is licensed under the [MIT License](LICENSE). See
 [NOTICE](NOTICE) for attribution, [CONTRIBUTING.md](CONTRIBUTING.md) before
 submitting work, and the [licensing summary](https://snowball-projects.github.io/about/#licensing).

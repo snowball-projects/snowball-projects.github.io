@@ -11,7 +11,7 @@ with snowball's founder.
 ## Contribution terms
 
 By intentionally submitting work for inclusion, you agree that it is provided
-under the [Apache License 2.0](LICENSE) and represent that you have the right to
+under the [MIT License](LICENSE) and represent that you have the right to
 provide it on those terms.
 
 Contributors are responsible for submitted material, including automated work.
