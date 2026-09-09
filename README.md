@@ -43,6 +43,8 @@ Site-wide social previews use `public/og.png`; project and article pages omit in
 
 Keep a square source image in `src/assets/projects/` and reference it from the
 project's frontmatter, for example `icon: ../../assets/projects/modo.png`.
+For modo and fairway, `docs/icon.png` in the owning project repository is the
+canonical master; copy its selected revision here when updating the catalog.
 The card renders it beside the name at 52px; Astro creates small WebP files for
 standard and high-density screens. The field is optional, so a project can ship
 with just its name. Images are decorative to screen readers because the name
