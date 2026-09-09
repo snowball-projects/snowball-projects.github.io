@@ -39,6 +39,26 @@ Schemas live in `src/content.config.ts`. A production build fails when frontmatt
 
 Site-wide social previews use `public/og.png`; project and article pages omit inherited images unless they gain their own relevant visual.
 
+### Project icons
+
+Keep a square source image in `src/assets/projects/` and reference it from the
+project's frontmatter, for example `icon: ../../assets/projects/modo.png`.
+The card renders it beside the name at 52px; Astro creates small WebP files for
+standard and high-density screens. The field is optional, so a project can ship
+with just its name. Images are decorative to screen readers because the name
+already identifies the project.
+
+Choose one recognizable object from the project's purpose or audience. Keep
+rounded contours, restrained color, gentle shading, a transparent background,
+and enough simplicity to read at card size. Use an existing icon as a style
+reference and judge new work beside the whole set on the dark cards. Preserve
+the original snowball mark as its own identity.
+
+The current concepts and prompts live beside the [source images](src/assets/projects/prompts.md).
+For an iteration, change one thing at a time, keep a candidate under a new name,
+and update the project's image reference when selected. Run `npm run verify`
+and inspect the cards on a narrow screen and with keyboard focus before publishing.
+
 ## Deployment
 
 `.github/workflows/deploy.yml` verifies, builds, and deploys after a push to `main`. In repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.

@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { getImage } from "astro:assets";
 import { projectHref } from "../lib/projects";
 
 interface Props {
@@ -16,6 +17,15 @@ const destination = project.data.liveUrl
     ? "GitHub repository"
     : "project details";
 const secondaryRepository = project.data.liveUrl && project.data.repository;
+const icon = project.data.icon
+  ? await getImage({
+      src: project.data.icon,
+      width: 52,
+      height: 52,
+      densities: [1, 2],
+      format: "webp",
+    })
+  : undefined;
 ---
 
 <article
@@ -29,7 +39,20 @@ const secondaryRepository = project.data.liveUrl && project.data.repository;
     href={href}
     aria-label={`${project.data.title} - open ${destination}`}
   >
-    <Heading>{project.data.title}</Heading>
+    <Heading>
+      {
+        icon && (
+          <img
+            {...icon.attributes}
+            class="project-card__icon"
+            src={icon.src}
+            srcset={icon.srcSet.attribute}
+            alt=""
+          />
+        )
+      }
+      <span>{project.data.title}</span>
+    </Heading>
     <p>{project.data.summary}</p>
   </a>
   {

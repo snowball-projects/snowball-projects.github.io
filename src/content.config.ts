@@ -15,15 +15,17 @@ const gitHubRepositoryUrl = safeHttpsUrl.refine(isGitHubRepositoryUrl, {
 
 const projects = defineCollection({
   loader: glob({ base: "./src/content/projects", pattern: "**/*.md" }),
-  schema: z
-    .object({
-      title: nonemptyText,
-      summary: nonemptyText,
-      liveUrl: safeHttpsUrl.optional(),
-      repository: gitHubRepositoryUrl.optional(),
-      draft: z.boolean().default(false),
-    })
-    .strict(),
+  schema: ({ image }) =>
+    z
+      .object({
+        title: nonemptyText,
+        summary: nonemptyText,
+        icon: image().optional(),
+        liveUrl: safeHttpsUrl.optional(),
+        repository: gitHubRepositoryUrl.optional(),
+        draft: z.boolean().default(false),
+      })
+      .strict(),
 });
 
 const writing = defineCollection({
