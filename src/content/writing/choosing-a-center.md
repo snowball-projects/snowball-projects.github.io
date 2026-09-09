@@ -1,10 +1,14 @@
 ---
 title: Choosing a Center Is Choosing an Objective
 summary: The objective defines a road-network center; modo minimizes the longest drive and returns its one-minute near-optimal region.
-publishedDate: 2026-08-26
-updatedDate: 2026-09-06
+destination: snowball
+publishedDate: "2026-08-26"
+updatedDate: "2026-09-06"
 authors:
   - Nas Delevski
+topics:
+  - graph-theory
+  - optimization
 project: modo
 draft: false
 ---
