@@ -7,6 +7,7 @@ const siteOrigin = "https://snowball-projects.github.io";
 // GitHub Pages project sites share this origin but deploy from their own repos.
 // Keep this allowlist exact: other same-origin links must exist in this build.
 const separateProjectSites = new Set([
+  "https://snowball-projects.github.io/pyaim/",
   "https://snowball-projects.github.io/spelunk/",
   "https://snowball-projects.github.io/lookout/",
   "https://snowball-projects.github.io/optasy/",

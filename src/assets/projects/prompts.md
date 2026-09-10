@@ -1,6 +1,6 @@
 # snowball project icons
 
-These source images are 1254 × 1254 transparent PNGs. The prompts below preserve the original briefs, including the requested dimensions. Use the selected images as style references for future additions.
+Original generated images are 1254 × 1254 transparent PNGs; some project-card assets are smaller derivatives as noted below. The prompts below preserve the original briefs, including the requested dimensions. Use the selected images as style references for future additions.
 
 ## modo
 
@@ -35,3 +35,7 @@ Constraints: Exactly two curved routes and one golf flag. No separate ball, cloc
 ## spelunk
 
 Source: `spelunk.png`. The canonical artwork and exact generation prompt are maintained in [spelunk](https://github.com/snowball-projects/spelunk/blob/main/assets/PROMPT.md). The nested deep-green passage contours replace the former cave atlas map/entrance icon. This 256px project-card derivative preserves alpha; the full-resolution source remains in spelunk.
+
+## pyaim
+
+Source: `pyaim.png`. This 256px transparent derivative uses the green target/crosshair artwork maintained in [pyaim](https://github.com/snowball-projects/pyaim/blob/main/assets/PROMPT.md), alongside the exact generation prompt and full-resolution source.
