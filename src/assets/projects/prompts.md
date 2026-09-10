@@ -31,3 +31,7 @@ Style/medium: Match the modo reference's strong rounded dark edging, restrained 
 Framing and background: One centered isolated icon with balanced clear margin, square canvas. Genuinely transparent background with alpha; no checkerboard pattern, no opaque background, no floor shadow.
 Constraints: Exactly two curved routes and one golf flag. No separate ball, clocks, cars, text, letters, numerals, extra symbols, extra markers, golf clubs, terrain detail, grid, road network, scenery, badge, enclosing tile or platform. Do not reproduce modo's third route or circular central junction. Preserve the existing icon family's matte appearance and charcoal/ivory accents while changing fairway's main form to the green folded map.
 ```
+
+## cave atlas
+
+Source: `cave-atlas.png`. The canonical artwork and prompt are maintained in [cave atlas](https://github.com/snowball-projects/cave-atlas/blob/main/assets/PROMPT.md). This copy is used for the project card; preserve its alpha channel. The warm ochre folded map and ivory cave arch follow the modo/fairway icon family.

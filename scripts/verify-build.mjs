@@ -4,6 +4,11 @@ import { join, posix, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const siteOrigin = "https://snowball-projects.github.io";
+// GitHub Pages project sites share this origin but deploy from their own repos.
+// Keep this allowlist exact: other same-origin links must exist in this build.
+const separateProjectSites = new Set([
+  "https://snowball-projects.github.io/cave-atlas/",
+]);
 const outputDirectory = fileURLToPath(new URL("../dist/", import.meta.url));
 const sourceNoticePath = new URL(
   "../public/THIRD-PARTY-NOTICES.txt",
@@ -138,7 +143,7 @@ function resolveOutputTarget(rawValue, sourcePublicPath) {
     return { error: `insecure site URL "${rawValue}"` };
   }
 
-  if (url.origin !== siteOrigin) {
+  if (url.origin !== siteOrigin || separateProjectSites.has(url.href)) {
     return {};
   }
 
