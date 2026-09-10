@@ -30,8 +30,11 @@
 - Cards open the verified live interface when present, otherwise the public
   repository, otherwise the internal page. Keep repository links available and
   each source repository canonical.
-- Keep a future Finance dashboard separate from the independent finance
-  repositories it presents.
+- The approved finance dashboard is `lookout`: one catalog card opening its
+  verified live interface when launched. Moneyprinter, OptionPricingEngine and
+  marketbro remain canonical engine repositories, linked from lookout's relevant
+  views/documentation. Do not add separate engine cards without a new owner
+  decision. Keep unpublished plans outside the public project collection.
 - snowball software uses MIT. Verify public source and its actual license
   before calling a project open source or licensed. Preserve `LICENSE`, `NOTICE`,
   and applicable third-party notices.
