@@ -16,24 +16,18 @@ const destination = project.data.liveUrl
   : project.data.repository
     ? "GitHub repository"
     : "project details";
-const secondaryRepository = project.data.liveUrl && project.data.repository;
 const icon = project.data.icon
   ? await getImage({
       src: project.data.icon,
-      width: 52,
-      height: 52,
+      width: 40,
+      height: 40,
       densities: [1, 2],
       format: "webp",
     })
   : undefined;
 ---
 
-<article
-  class:list={[
-    "project-card",
-    { "project-card--has-source": secondaryRepository },
-  ]}
->
+<article class="project-card">
   <a
     class="project-card__link"
     href={href}
@@ -55,15 +49,4 @@ const icon = project.data.icon
     </Heading>
     <p>{project.data.summary}</p>
   </a>
-  {
-    secondaryRepository && (
-      <a
-        class="project-card__source"
-        href={secondaryRepository}
-        aria-label={`${project.data.title} source on GitHub`}
-      >
-        Source
-      </a>
-    )
-  }
 </article>

@@ -28,8 +28,9 @@
   neutral. Published dashboards require a live interface; published developer
   tools require GitHub. Do not claim an interface before deployment succeeds.
 - Cards open the verified live interface when present, otherwise the public
-  repository, otherwise the internal page. Keep repository links available and
-  each source repository canonical.
+  repository, otherwise the internal page. Keep cards compact and give each
+  one a single destination; do not add separate Source links to cards. Source
+  access belongs in the project itself; each source repository stays canonical.
 - The approved finance dashboard is `lookout`: one catalog card opening its
   verified live interface when launched. Moneyprinter, OptionPricingEngine and
   marketbro remain canonical engine repositories, linked from lookout's relevant

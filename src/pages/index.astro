@@ -8,7 +8,11 @@ const projects = (await getCollection("projects"))
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 
-<BaseLayout title="snowball" description="Founder-led, opinionated software.">
+<BaseLayout
+  title="snowball"
+  description="Founder-led, opinionated software."
+  mainClass="home"
+>
   <h1 class="visually-hidden">snowball</h1>
 
   <div class="project-list">
