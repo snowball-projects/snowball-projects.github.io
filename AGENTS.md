@@ -18,7 +18,9 @@
 - Read `src/pages/principles.md` before changes to public claims, product
   direction, data, architecture, operations, or stewardship. It is provisional
   but canonical; do not silently rewrite, expand, or duplicate it.
-- Write `snowball` in lowercase. Credit software to snowball and identify Nas
+- Write `snowball` and `optasy` in lowercase. Prefer single-word, lowercase
+  product names where practical; keep existing names until a rename is approved.
+  Credit software to snowball and identify Nas
   Delevski as its founder unless another role is necessary.
 - snowball is founder-led. Contributions may be welcome; final product direction
   remains with the founder. Do not invent a mission, movement, or community
