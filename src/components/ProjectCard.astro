@@ -21,8 +21,8 @@ const icon = project.data.icon
       src: project.data.icon,
       width: 40,
       height: 40,
-      densities: [1, 2],
-      format: "webp",
+      densities: project.data.icon.format === "svg" ? undefined : [1, 2],
+      format: project.data.icon.format === "svg" ? "svg" : "webp",
     })
   : undefined;
 ---

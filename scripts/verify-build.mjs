@@ -9,6 +9,7 @@ const siteOrigin = "https://snowball-projects.github.io";
 const separateProjectSites = new Set([
   "https://snowball-projects.github.io/cave-atlas/",
   "https://snowball-projects.github.io/lookout/",
+  "https://snowball-projects.github.io/optasy/",
   "https://snowball-projects.github.io/teet/",
 ]);
 const outputDirectory = fileURLToPath(new URL("../dist/", import.meta.url));
