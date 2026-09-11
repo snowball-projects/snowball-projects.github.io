@@ -44,3 +44,6 @@ These are working principles, revised through experience building and operating 
 
 12. **Open contribution, clear responsibility**  
     Make it easy to report problems and contribute improvements. Keep responsibility for maintenance and product direction clear.
+
+13. **Understand who could benefit**  
+    Consider how people, AI agents and other software could benefit and how their needs differ. Choose a primary audience and the simplest useful interfaces without unnecessarily limiting other uses.
