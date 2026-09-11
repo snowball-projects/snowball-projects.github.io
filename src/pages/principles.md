@@ -7,7 +7,7 @@ pageClass: principles-page
 
 <h1 class="visually-hidden">Principles</h1>
 
-These are working principles, revised through experience building and operating snowball's tools.
+Working principles, refined through experience.
 
 1. **Usefulness comes first**  
    Build tools that solve real problems without optimizing for engagement, lock-in, or extraction.

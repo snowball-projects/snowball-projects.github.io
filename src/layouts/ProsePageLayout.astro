@@ -12,8 +12,12 @@ interface Props {
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout title={frontmatter.title} description={frontmatter.description}>
-  <article class:list={["prose", frontmatter.pageClass]}>
+<BaseLayout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  mainClass={frontmatter.pageClass}
+>
+  <article class="prose">
     <div class="content content--page">
       <slot />
     </div>

@@ -332,6 +332,10 @@ main.home {
   color: var(--muted);
 }
 
+main.principles-page {
+  padding-top: clamp(1.25rem, 3vw, 2rem);
+}
+
 .principles-page ol {
   padding-left: 1.4rem;
 }
