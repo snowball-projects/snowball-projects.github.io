@@ -51,3 +51,7 @@ Source: `choss.png`. A 256px transparent derivative of the deep-green climber an
 ## sportsbro
 
 Source: `sportsbro.png`. A 256px transparent derivative of the emerald calendar and stadium mark. The full-resolution artwork and exact generation prompt are maintained in [sportsbro](https://github.com/snowball-projects/sportsbro/blob/main/assets/PROMPT.md).
+
+## transitbro
+
+Source: `transitbro.svg`. The existing train icon from [transitbro](https://github.com/snowball-projects/transitbro/blob/main/app/icon.svg), reused unchanged. This is a source SVG rather than a generated image.
