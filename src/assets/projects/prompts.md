@@ -47,3 +47,7 @@ Source: `raiderbro.png`. A 256px derivative of the restored circular ARC Raiders
 ## choss
 
 Source: `choss.png`. A 256px transparent derivative of the deep-green climber and cliff silhouette. The full-resolution artwork and exact generation prompt are maintained in [choss](https://github.com/snowball-projects/choss/blob/main/assets/PROMPT.md).
+
+## sportsbro
+
+Source: `sportsbro.png`. A 256px transparent derivative of the emerald calendar and stadium mark. The full-resolution artwork and exact generation prompt are maintained in [sportsbro](https://github.com/snowball-projects/sportsbro/blob/main/assets/PROMPT.md).
