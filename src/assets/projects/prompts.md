@@ -36,6 +36,6 @@ Constraints: Exactly two curved routes and one golf flag. No separate ball, cloc
 
 Source: `spelunk.png`. The canonical artwork and exact generation prompt are maintained in [spelunk](https://github.com/snowball-projects/spelunk/blob/main/assets/PROMPT.md). The nested deep-green passage contours replace the former cave atlas map/entrance icon. This 256px project-card derivative preserves alpha; the full-resolution source remains in spelunk.
 
-## pyaim
+## maim
 
-Source: `pyaim.png`. This 256px transparent derivative uses the green target/crosshair artwork maintained in [pyaim](https://github.com/snowball-projects/pyaim/blob/main/assets/PROMPT.md), alongside the exact generation prompt and full-resolution source.
+Source: `maim.png`. This 256px transparent derivative uses the green target/crosshair artwork maintained in [maim](https://github.com/snowball-projects/maim/blob/main/assets/PROMPT.md), alongside the exact generation prompt and full-resolution source.
