@@ -372,10 +372,9 @@ const [sourceNotice, outputNotice, katexLicense, outputPaths] =
     walk(outputDirectory),
   ]);
 
-assert.equal(
-  sourceNotice,
-  `KaTeX\n\n${katexLicense}`,
-  "The public KaTeX notice must match the license from the installed package.",
+assert.ok(
+  sourceNotice.startsWith(`KaTeX\n\n${katexLicense}`),
+  "The public notices must preserve the complete installed KaTeX license.",
 );
 
 assert.equal(

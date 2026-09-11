@@ -21,3 +21,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+ARC Raiders stripe artwork (raiderbro project icon)
+
+Copyright Embark Studios AB. ARC RAIDERS and EMBARK are their trademarks.
+Source: https://assets.arcraiders.com/static/stripes/stripes.png
+The circular crop and resized copies are excluded from snowball's MIT software
+license. raiderbro is an unofficial companion, not affiliated with or endorsed
+by Embark. Provenance: https://github.com/snowball-projects/raiderbro/blob/main/assets/README.md

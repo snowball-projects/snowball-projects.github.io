@@ -42,4 +42,4 @@ Source: `maim.png`. This 256px transparent derivative uses the green target/cros
 
 ## raiderbro
 
-Source: `raiderbro.png`. A 256px transparent derivative of the original green salvage-crate icon. [raiderbro](https://github.com/snowball-projects/raiderbro/blob/main/assets/PROMPT.md) retains the full-resolution artwork and exact generation prompt; this is not an official game logo.
+Source: `raiderbro.png`. A 256px derivative of the restored circular ARC Raiders stripe mark. [raiderbro’s icon provenance](https://github.com/snowball-projects/raiderbro/blob/main/assets/README.md) records the official asset source and original framing. The stripe artwork belongs to Embark Studios AB and is excluded from snowball’s MIT software license; raiderbro is an unofficial companion.
