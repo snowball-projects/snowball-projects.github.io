@@ -1,5 +1,6 @@
 ---
 title: fairway
+topics: [sports, geography]
 icon: ../../assets/projects/fairway.png
 summary: Rank golf courses by the group's combined drive or the longest individual drive.
 liveUrl: https://fairway-n29h.onrender.com

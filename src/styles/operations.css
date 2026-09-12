@@ -1,0 +1,143 @@
+main.operations-page {
+  max-width: 62rem;
+  padding-block: clamp(2rem, 5vw, 4rem);
+}
+.operations-intro h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 1rem;
+}
+.operations-intro > p {
+  margin-bottom: 0.4rem;
+}
+.operations-date,
+.operations-note {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.operations-totals {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin: 2rem 0 1rem;
+}
+.operations-totals dt {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.operations-totals dd {
+  margin: 0.3rem 0 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.operations-totals dd span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.operations-section {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+.operations-section h2 {
+  font-size: 1.65rem;
+  margin-bottom: 1rem;
+}
+.operations-metrics {
+  padding: 0;
+  margin: 1.5rem 0;
+  list-style: none;
+  display: grid;
+  gap: 1.2rem;
+}
+.operations-metric-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  flex-wrap: wrap;
+}
+.operations-metric-label span {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+.operations-metrics progress {
+  display: block;
+  width: 100%;
+  height: 0.4rem;
+  margin-top: 0.5rem;
+  border: 0;
+  border-radius: 0.2rem;
+  overflow: hidden;
+  background: var(--surface);
+  accent-color: var(--accent);
+}
+.operations-metrics progress::-webkit-progress-bar {
+  background: var(--surface);
+}
+.operations-metrics progress::-webkit-progress-value {
+  background: var(--accent);
+}
+.operations-metrics progress::-moz-progress-bar {
+  background: var(--accent);
+}
+.operations-projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 2rem;
+}
+.operations-project {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 1rem;
+  min-width: 0;
+}
+.operations-project-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.operations-project h3 {
+  font-size: 1.25rem;
+  letter-spacing: -0.025em;
+}
+.operations-project-heading > span {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.operations-project p {
+  margin: 0.45rem 0;
+}
+.operations-project-host {
+  font-size: 0.9rem;
+}
+.operations-project details {
+  margin-top: 0.7rem;
+  font-size: 0.9rem;
+}
+.operations-project summary {
+  cursor: pointer;
+  color: var(--muted);
+  width: fit-content;
+}
+.operations-project summary:hover {
+  color: var(--ink);
+}
+.operations-project summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.operations-project details p {
+  padding-top: 0.3rem;
+}
+.operations-method p {
+  max-width: 70ch;
+}
+@media (max-width: 600px) {
+  .operations-projects {
+    grid-template-columns: 1fr;
+  }
+  .operations-totals {
+    gap: 1rem;
+  }
+}

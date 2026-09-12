@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { getImage } from "astro:assets";
+import { projectTopicHref, projectTopicLabels } from "../lib/project-topics";
 import { projectHref } from "../lib/projects";
 
 interface Props {
@@ -49,4 +50,13 @@ const icon = project.data.icon
     </Heading>
     <p>{project.data.summary}</p>
   </a>
+  <ul class="project-card__topics" aria-label={`${project.data.title} topics`}>
+    {
+      project.data.topics.map((topic) => (
+        <li>
+          <a href={projectTopicHref(topic)}>{projectTopicLabels[topic]}</a>
+        </li>
+      ))
+    }
+  </ul>
 </article>

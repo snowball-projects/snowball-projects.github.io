@@ -404,6 +404,57 @@ for (const file of outputPaths) {
   }
 }
 
+// Verify the rendered topic views against the complete homepage catalog.
+// This catches missing cards, draft leakage, and nested topic links.
+const homeHtml = outputFiles.get("index.html");
+const homeCards = [
+  ...homeHtml.matchAll(
+    /<article\b[^>]*class="project-card"[^>]*>(.*?)<\/article>/gs,
+  ),
+];
+const topicProjects = new Map();
+for (const [, card] of homeCards) {
+  const mainLink = card.match(
+    /<a\b[^>]*class="project-card__link"[^>]*>(.*?)<\/a>/s,
+  );
+  assert.ok(mainLink, "Each project card must have one main destination link.");
+  assert.ok(
+    !/<a\b/.test(mainLink[1]),
+    "Topic links must not nest inside the main project link.",
+  );
+  const title = textContent(
+    mainLink[1].match(/<h[23]\b[^>]*>(.*?)<\/h[23]>/s)?.[1] ?? "",
+  );
+  const topicLinks = [...card.matchAll(/href="(\/topics\/[^"/]+\/)"/g)];
+  assert.ok(topicLinks.length > 0, `${title}: missing project topics`);
+  for (const [, href] of topicLinks) {
+    const members = topicProjects.get(href) ?? [];
+    members.push(title);
+    topicProjects.set(href, members);
+  }
+}
+for (const [href, expectedTitles] of topicProjects) {
+  const html = outputFiles.get(`${href.slice(1)}index.html`);
+  assert.ok(html, `Missing topic page ${href}`);
+  const actualTitles = [
+    ...html.matchAll(
+      /<article\b[^>]*class="project-card"[^>]*>(.*?)<\/article>/gs,
+    ),
+  ].map(([, card]) =>
+    textContent(card.match(/<h[23]\b[^>]*>(.*?)<\/h[23]>/s)?.[1] ?? ""),
+  );
+  assert.deepEqual(
+    actualTitles,
+    expectedTitles,
+    `${href}: topic members must match the homepage and preserve its order`,
+  );
+  assert.match(
+    html,
+    /href="\/">All projects<\/a>/,
+    `${href}: missing return to all projects`,
+  );
+}
+
 const manifest = JSON.parse(
   await readFile(join(outputDirectory, "site.webmanifest"), "utf8"),
 );

@@ -1,0 +1,124 @@
+{
+  "period": "2026-09",
+  "observedDate": "2026-09-11",
+  "currency": "USD",
+  "serviceCostUsd": 0,
+  "fundingReceivedUsd": 0,
+  "financialSource": "Service costs checked in Render and against the free hosting inventory. Funding reported by the founder.",
+  "metrics": [
+    {
+      "id": "render-hours",
+      "label": "Free instance-hours",
+      "used": 9.52,
+      "limit": 750,
+      "unit": "hours",
+      "sourceUrl": "https://render.com/docs/free"
+    },
+    {
+      "id": "render-bandwidth",
+      "label": "Outbound bandwidth",
+      "used": 8,
+      "limit": 5000,
+      "unit": "MB",
+      "sourceUrl": "https://render.com/docs/outbound-bandwidth"
+    },
+    {
+      "id": "render-builds",
+      "label": "Build time",
+      "used": 5,
+      "limit": 500,
+      "unit": "minutes",
+      "sourceUrl": "https://render.com/docs/build-pipeline"
+    }
+  ],
+  "projects": [
+    {
+      "id": "choss",
+      "hosting": "github-pages",
+      "serviceCostUsd": 0,
+      "renderHours": null,
+      "resources": "Static files and a reviewed climbing catalogue. OpenStreetMap map tiles.",
+      "storage": "No hosted database or user accounts."
+    },
+    {
+      "id": "fairway",
+      "hosting": "render-free",
+      "serviceCostUsd": 0,
+      "renderHours": null,
+      "resources": "Python service with a regional course catalogue. Static road routing or TomTom matrices, depending on provider configuration; map tiles and address lookup.",
+      "storage": "Bundled data and temporary process state; no hosted database."
+    },
+    {
+      "id": "lookout",
+      "hosting": "github-pages",
+      "serviceCostUsd": 0,
+      "renderHours": null,
+      "resources": "Static files and browser-side calculations. Imports and offline reports supplied by the user.",
+      "storage": "Imported data stays in browser memory; no hosted database."
+    },
+    {
+      "id": "maim",
+      "hosting": "github-pages",
+      "serviceCostUsd": 0,
+      "renderHours": null,
+      "resources": "Static files and a browser canvas. No external data feed.",
+      "storage": "Session state in the browser; no hosted database."
+    },
+    {
+      "id": "modo",
+      "hosting": "render-free",
+      "serviceCostUsd": 0,
+      "renderHours": null,
+      "resources": "Python service over a bundled Chicago road snapshot. Map tiles and address lookup.",
+      "storage": "Bundled road data and temporary process state; no hosted database."
+    },
+    {
+      "id": "optasy",
+      "hosting": "github-pages",
+      "serviceCostUsd": 0,
+      "renderHours": null,
+      "resources": "Static files, fictional examples and local inputs. No live injury feed.",
+      "storage": "Imported data stays in browser memory; no hosted database."
+    },
+    {
+      "id": "raiderbro",
+      "hosting": "github-pages",
+      "serviceCostUsd": 0,
+      "renderHours": null,
+      "resources": "Static files and dated game data. Some images load from third-party sources.",
+      "storage": "Progress saved in the browser with import/export; no hosted database."
+    },
+    {
+      "id": "spelunk",
+      "hosting": "github-pages",
+      "serviceCostUsd": 0,
+      "renderHours": null,
+      "resources": "Static files and a reviewed cave catalogue. OpenStreetMap map tiles.",
+      "storage": "No hosted database or user accounts."
+    },
+    {
+      "id": "sportsbro",
+      "hosting": "github-pages",
+      "serviceCostUsd": 0,
+      "renderHours": null,
+      "resources": "Static files and reviewed schedule snapshots. No live sports feed.",
+      "storage": "Interests saved in the browser; no hosted database."
+    },
+    {
+      "id": "teet",
+      "hosting": "github-pages",
+      "serviceCostUsd": 0,
+      "renderHours": null,
+      "resources": "Static files, a bundled item catalogue and browser equipment calculations. The optional companion runs on the user's Windows computer.",
+      "storage": "No hosted database."
+    },
+    {
+      "id": "transitbro",
+      "hosting": "render-free",
+      "serviceCostUsd": 0,
+      "renderHours": null,
+      "resources": "Node service querying CTA and MBTA feeds with bounded caches. OpenStreetMap map tiles.",
+      "storage": "Temporary process caches; no hosted database or persistent disk."
+    }
+  ]
+}

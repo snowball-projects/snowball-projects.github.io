@@ -39,13 +39,25 @@ Schemas live in `src/content.config.ts`. A production build fails when frontmatt
 
 Site-wide social previews use `public/og.png`; project and article pages omit inherited images unless they gain their own relevant visual.
 
+### Project topics
+
+Each project has one or more owner-approved `topics`: `gaming`, `sports`,
+`geography`, `transport`, or `finance`. The schema rejects unknown and repeated
+values. These project subjects are separate from article topics, which remain
+free-form writing metadata.
+
+The homepage shows every published project alphabetically. Small topic links
+inside each card open static `/topics/<topic>/` pages with the same cards and an
+“All projects” link. The main card link still opens the project itself; topic
+links are separate anchors. There is no client-side filtering or tracking.
+
 ### Project icons
 
 Keep a square source image in `src/assets/projects/` and reference it from the
 project's frontmatter, for example `icon: ../../assets/projects/modo.png`.
 For modo and fairway, `docs/icon.png` in the owning project repository is the
 canonical master; copy its selected revision here when updating the catalog.
-The card renders it beside the name at 52px; Astro creates small WebP files for
+The card renders it beside the name at 40px; Astro creates small WebP files for
 standard and high-density screens. The field is optional, so a project can ship
 with just its name. Images are decorative to screen readers because the name
 already identifies the project.
@@ -60,6 +72,12 @@ The current concepts and prompts live beside the [source images](src/assets/proj
 For an iteration, change one thing at a time, keep a candidate under a new name,
 and update the project's image reference when selected. Run `npm run verify`
 and inspect the cards on a narrow screen and with keyboard focus before publishing.
+
+## Operations record
+
+The public [Operations page](https://snowball-projects.github.io/operations/)
+uses one dated snapshot for costs and shared resource use. Follow
+[the update procedure](docs/OPERATIONS-RECORD.md) when refreshing it.
 
 ## Deployment
 

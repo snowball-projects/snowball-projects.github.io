@@ -1,5 +1,6 @@
 ---
 title: raiderbro
+topics: [gaming]
 icon: ../../assets/projects/raiderbro.png
 summary: Track ARC Raiders upgrade requirements and compare weapon builds.
 liveUrl: https://snowball-projects.github.io/raiderbro/

@@ -1,6 +1,7 @@
 import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
+import { projectTopicSlugs } from "./lib/project-topics";
 import { isGitHubRepositoryUrl, isSafeHttpsUrl } from "./lib/urls";
 
 const nonemptyText = z.string().trim().min(1);
@@ -21,6 +22,12 @@ const projects = defineCollection({
         title: nonemptyText,
         summary: nonemptyText,
         icon: image().optional(),
+        topics: z
+          .array(z.enum(projectTopicSlugs))
+          .min(1)
+          .refine((topics) => new Set(topics).size === topics.length, {
+            message: "Project topics must not repeat.",
+          }),
         liveUrl: safeHttpsUrl.optional(),
         repository: gitHubRepositoryUrl.optional(),
         draft: z.boolean().default(false),
