@@ -55,7 +55,7 @@ const observed = new Intl.DateTimeFormat("en-US", {
     <h1>Operations</h1>
     <p>What it takes to keep snowball running.</p>
     <p class="operations-date">
-      {period} · Snapshot checked <time datetime={snapshot.observedDate}
+      {period} · Usage and costs checked <time datetime={snapshot.observedDate}
         >{observed}</time
       >
     </p>
@@ -167,9 +167,8 @@ const observed = new Intl.DateTimeFormat("en-US", {
       }
     </div>
     <p class="operations-note">
-      This website also uses GitHub Pages. Offline finance engines add no hosted
-      service. Free third-party APIs and map tiles have their own limits; a
-      static site can still make external requests.
+      This website also uses GitHub Pages. Free third-party APIs and map tiles
+      have their own limits; a static site can still make external requests.
     </p>
   </section>
 
@@ -184,9 +183,10 @@ const observed = new Intl.DateTimeFormat("en-US", {
       next update.
     </p>
     <p>
-      Shared allowances are counted once. Unknown use is left unknown, and
-      reported costs exclude hypothetical paid equivalents. The record is
-      updated through reviewed source changes.
+      The project list reflects the current catalog. Usage and cost figures
+      retain the observation date above. Shared allowances are counted once.
+      Unknown use is left unknown, and reported costs exclude hypothetical paid
+      equivalents. The record is updated through reviewed source changes.
     </p>
     <p>
       <a href="/operations.json">Download the record</a> · <a

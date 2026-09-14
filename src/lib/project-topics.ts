@@ -3,7 +3,6 @@ export const projectTopicSlugs = [
   "sports",
   "geography",
   "transport",
-  "finance",
 ] as const;
 
 export type ProjectTopic = (typeof projectTopicSlugs)[number];
@@ -13,7 +12,6 @@ export const projectTopicLabels: Record<ProjectTopic, string> = {
   sports: "Sports",
   geography: "Geography",
   transport: "Transport",
-  finance: "Finance",
 };
 
 export function projectTopicHref(topic: ProjectTopic) {

@@ -8,7 +8,10 @@ const projects = [
     data: { title: "z", topics: ["sports", "geography"], draft: false },
   },
   { id: "draft", data: { title: "draft", topics: ["sports"], draft: true } },
-  { id: "other", data: { title: "other", topics: ["finance"], draft: false } },
+  {
+    id: "other",
+    data: { title: "other", topics: ["transport"], draft: false },
+  },
   { id: "a", data: { title: "a", topics: ["sports"], draft: false } },
 ];
 

@@ -49,14 +49,6 @@
       "storage": "Bundled data and temporary process state; no hosted database."
     },
     {
-      "id": "lookout",
-      "hosting": "github-pages",
-      "serviceCostUsd": 0,
-      "renderHours": null,
-      "resources": "Static files and browser-side calculations. Imports and offline reports supplied by the user.",
-      "storage": "Imported data stays in browser memory; no hosted database."
-    },
-    {
       "id": "maim",
       "hosting": "github-pages",
       "serviceCostUsd": 0,

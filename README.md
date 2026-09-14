@@ -42,7 +42,7 @@ Site-wide social previews use `public/og.png`; project and article pages omit in
 ### Project topics
 
 Each project has one or more owner-approved `topics`: `gaming`, `sports`,
-`geography`, `transport`, or `finance`. The schema rejects unknown and repeated
+`geography`, or `transport`. The schema rejects unknown and repeated
 values. These project subjects are separate from article topics, which remain
 free-form writing metadata.
 

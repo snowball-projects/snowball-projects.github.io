@@ -12,7 +12,6 @@ const separateProjectSites = new Set([
   "https://snowball-projects.github.io/raiderbro/",
   "https://snowball-projects.github.io/maim/",
   "https://snowball-projects.github.io/spelunk/",
-  "https://snowball-projects.github.io/lookout/",
   "https://snowball-projects.github.io/optasy/",
   "https://snowball-projects.github.io/teet/",
 ]);
