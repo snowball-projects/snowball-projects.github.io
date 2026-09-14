@@ -69,8 +69,8 @@
       "hosting": "github-pages",
       "serviceCostUsd": 0,
       "renderHours": null,
-      "resources": "Static files, fictional examples and local inputs. No live injury feed.",
-      "storage": "Imported data stays in browser memory; no hosted database."
+      "resources": "Static site with shared hourly nflverse data collection on GitHub Actions. Source updates and coverage may lag.",
+      "storage": "Published data files; no hosted database."
     },
     {
       "id": "raiderbro",
