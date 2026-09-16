@@ -4,25 +4,12 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description: string;
-  pageType?: "website" | "article";
-  socialImage?: string | null;
-  socialImageAlt?: string;
   mainClass?: string;
 }
 
-const {
-  title,
-  description,
-  pageType = "website",
-  socialImage = "/og.png",
-  socialImageAlt = "snowball",
-  mainClass,
-} = Astro.props;
+const { title, description, mainClass } = Astro.props;
 const pageTitle = title === "snowball" ? title : `${title} - snowball`;
 const path = Astro.url.pathname;
-const socialImageUrl = socialImage
-  ? new URL(socialImage, Astro.site ?? Astro.url).href
-  : undefined;
 const navigation = [
   { href: "/writing/", label: "Blog" },
   { href: "/operations/", label: "Operations" },
@@ -65,29 +52,6 @@ const isCurrent = (href: string) =>
     <meta name="description" content={description} />
     <meta name="color-scheme" content="dark" />
     <meta name="theme-color" content="#0b0e0f" />
-    <meta property="og:site_name" content="snowball" />
-    <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content={pageType} />
-    <meta property="og:url" content={Astro.url} />
-    <meta
-      name="twitter:card"
-      content={socialImageUrl ? "summary_large_image" : "summary"}
-    />
-    <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={description} />
-    {socialImageUrl && <meta property="og:image" content={socialImageUrl} />}
-    {
-      socialImageUrl && (
-        <meta property="og:image:alt" content={socialImageAlt} />
-      )
-    }
-    {socialImageUrl && <meta name="twitter:image" content={socialImageUrl} />}
-    {
-      socialImageUrl && (
-        <meta name="twitter:image:alt" content={socialImageAlt} />
-      )
-    }
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />

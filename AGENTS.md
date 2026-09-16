@@ -34,9 +34,8 @@
   one primary project destination; owner-approved topic labels use separate
   links to static topic views. Do not add separate Source links to cards. Source
   access belongs in the project itself; each source repository stays canonical.
-- lookout, moneyprinter and marketbro were retired on September 13, 2026.
-  option-pricing-engine is a personal project under adelevski. Keep them outside
-  the active catalog; old integration plans do not authorize restoring them.
+- The catalog lists snowball's active projects only. Adding one is an owner
+  decision, not an inference from an older document.
 - snowball software uses MIT. Verify public source and its actual license
   before calling a project open source or licensed. Preserve `LICENSE`, `NOTICE`,
   and applicable third-party notices.

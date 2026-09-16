@@ -29,7 +29,7 @@ download and all project fragment links afterward. Commit history preserves
 earlier snapshots. If updates stop, keep the observation date visible; do not
 label the last known values live or current.
 
-The project inventory follows the active catalog. On September 13, lookout was
-retired and removed from that inventory; the earlier provider observation date
-and values were retained, not presented as refreshed measurements. Historical
-project entries remain in Git history.
+The project inventory follows the active catalog. When a project leaves the
+catalog its entry is removed rather than refreshed, and earlier observation
+dates and values are never relabelled as current. Historical project entries
+remain in Git history.
