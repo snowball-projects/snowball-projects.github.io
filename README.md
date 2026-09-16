@@ -23,7 +23,7 @@ npm run verify
 ## Content
 
 - Put only publication-ready records in `src/content/projects/` and `src/content/writing/`. Keep working drafts elsewhere; `draft: true` excludes a record.
-- Treat projects as peers. Add `liveUrl` only after deployment. Cards prefer the live interface, then the public repository, then the internal page; source repositories remain canonical.
+- Treat projects as peers. Add `liveUrl` only after deployment. Cards link to the live interface when present, otherwise the public repository; source repositories remain canonical.
 - Article `authors` are displayed by name, without a role label. The optional `project` field adds a title-only project link, and published writing appears in `/rss.xml`.
 - Use the single template in the private writing workspace. Both sites accept
   the same article properties; this site requires `destination: snowball`.
@@ -32,12 +32,10 @@ npm run verify
   `updatedDate` and `project` are optional. A project reference must resolve to a
   published catalog entry. Personal writing belongs on the personal website.
 - Keep Principles canonical in `src/pages/principles.md` and the licensing
-  summary in `src/pages/about.astro#licensing`; `/licensing/` redirects there.
-  Link to them instead of duplicating them.
+  summary in `src/pages/about.astro#licensing`. Link to them instead of
+  duplicating them.
 
 Schemas live in `src/content.config.ts`. A production build fails when frontmatter does not match them.
-
-Site-wide social previews use `public/og.png`; project and article pages omit inherited images unless they gain their own relevant visual.
 
 ### Project topics
 

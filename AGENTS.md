@@ -30,8 +30,8 @@
   neutral. Published dashboards require a live interface; published developer
   tools require GitHub. Do not claim an interface before deployment succeeds.
 - Cards open the verified live interface when present, otherwise the public
-  repository, otherwise the internal page. Keep cards compact and give each
-  one primary project destination; owner-approved topic labels use separate
+  repository; the content schema requires one of them. Keep cards compact and
+  give each one primary project destination; owner-approved topic labels use separate
   links to static topic views. Do not add separate Source links to cards. Source
   access belongs in the project itself; each source repository stays canonical.
 - The catalog lists snowball's active projects only. Adding one is an owner
@@ -39,9 +39,9 @@
 - snowball software uses MIT. Verify public source and its actual license
   before calling a project open source or licensed. Preserve `LICENSE`, `NOTICE`,
   and applicable third-party notices.
-- Keep the reuse summary in `src/pages/about.astro` at `#licensing`; preserve
-  `/licensing/` as a redirect. Repositories own their licenses and notices;
-  third-party software and data retain their terms.
+- Keep the reuse summary in `src/pages/about.astro` at `#licensing`.
+  Repositories own their licenses and notices; third-party software and data
+  retain their terms.
 - Do not add AI-builder labels, production credits, or AI author credits to
   public copy, metadata, or the README.
 
@@ -60,9 +60,9 @@
   `publishedDate`, and set `updatedDate` for approved revisions.
 - Schemas live in `src/content.config.ts`; shared content and destination
   checks live in `src/lib/`. Validate at these boundaries.
-- Follow the personal site's `docs/publishing-surface.md` outcome contract when
-  that checkout is available. Keep implementations local; add a shared package
-  only if repeated coordinated changes demonstrate a need.
+- Keep the writing index a plain reverse-chronological stack with no page title
+  or promotional copy, matching the personal site. Keep implementations local;
+  add a shared package only if repeated coordinated changes demonstrate a need.
 - Preserve keyboard access, visible focus, narrow layouts, reduced motion, and
   the script-free production CSP. Never commit secrets, private drafts, analytics,
   advertising, or tracking.
