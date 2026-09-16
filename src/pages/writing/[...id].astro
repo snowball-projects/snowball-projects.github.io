@@ -40,10 +40,7 @@ const authorFormatter = new Intl.ListFormat("en", {
 });
 ---
 
-<BaseLayout
-  title={article.data.title}
-  description={article.data.summary}
->
+<BaseLayout title={article.data.title} description={article.data.summary}>
   <article class="prose">
     <h1>{article.data.title}</h1>
     <p class="article-meta">

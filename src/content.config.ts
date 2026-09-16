@@ -32,7 +32,10 @@ const projects = defineCollection({
         repository: gitHubRepositoryUrl.optional(),
         draft: z.boolean().default(false),
       })
-      .strict(),
+      .strict()
+      .refine((project) => project.liveUrl ?? project.repository, {
+        message: "A project needs a liveUrl or a repository to link to.",
+      }),
 });
 
 const writing = defineCollection({

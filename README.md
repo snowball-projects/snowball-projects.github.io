@@ -68,7 +68,8 @@ and enough simplicity to read at card size. Use an existing icon as a style
 reference and judge new work beside the whole set on the dark cards. Preserve
 the original snowball mark as its own identity.
 
-The current concepts and prompts live beside the [source images](src/assets/projects/prompts.md).
+Each project repository keeps its icon's generation prompt in `assets/PROMPT.md`
+beside the full-resolution artwork; the images here are card-sized derivatives.
 For an iteration, change one thing at a time, keep a candidate under a new name,
 and update the project's image reference when selected. Run `npm run verify`
 and inspect the cards on a narrow screen and with keyboard focus before publishing.

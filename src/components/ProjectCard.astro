@@ -14,9 +14,7 @@ const href = projectHref(project);
 const Heading = `h${headingLevel}` as "h2" | "h3";
 const destination = project.data.liveUrl
   ? "live interface"
-  : project.data.repository
-    ? "GitHub repository"
-    : "project details";
+  : "GitHub repository";
 const icon = project.data.icon
   ? await getImage({
       src: project.data.icon,
