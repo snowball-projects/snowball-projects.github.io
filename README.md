@@ -4,7 +4,7 @@ Source for [snowball](https://snowball-projects.github.io), a founder-led collec
 
 The site is built with Astro and Markdown content collections, contains no client-side JavaScript, and deploys to GitHub Pages from `main`.
 
-## Local development
+## Run
 
 Use Node 24 and install the locked dependencies:
 
