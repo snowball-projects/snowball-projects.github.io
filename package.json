@@ -2,7 +2,7 @@
   "name": "snowball-site",
   "version": "0.3.0",
   "private": true,
-  "author": "snowball",
+  "author": "Nas Delevski",
   "license": "MIT",
   "type": "module",
   "engines": {

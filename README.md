@@ -84,6 +84,7 @@ uses one dated snapshot for costs and shared resource use. Follow
 
 ## License and contributions
 
-This repository is licensed under the [MIT License](LICENSE). See
+This repository's source is licensed under the [MIT License](LICENSE); the
+articles under `src/content/writing/` are not licensed for reuse. See
 [third-party notices](public/THIRD-PARTY-NOTICES.txt) for attribution, [CONTRIBUTING.md](CONTRIBUTING.md) before
 submitting work, and the [licensing summary](https://snowball-projects.github.io/about/#licensing).
