@@ -160,7 +160,10 @@ main {
   padding-block: clamp(4.5rem, 10vw, 9rem);
 }
 
-main.home,
+main.home {
+  padding-block: clamp(1.5rem, 4vh, 2.5rem);
+}
+
 .site-footer {
   display: flex;
   justify-content: flex-end;
