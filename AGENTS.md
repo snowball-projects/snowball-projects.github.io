@@ -63,7 +63,7 @@ project.
 
 ## Stewardship
 
-- Write `snowball` and `optasy` in lowercase. Prefer single-word, lowercase
+- Write `snowball` and every project name in lowercase. Prefer single-word, lowercase
   product names where practical; keep existing names until a rename is
   approved. Credit software to snowball and identify Nas Delevski as its
   founder unless another role is necessary.

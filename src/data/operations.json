@@ -49,7 +49,7 @@
       "storage": "Bundled road data and temporary process state; no hosted database."
     },
     {
-      "id": "optasy",
+      "id": "sideline",
       "hosting": "github-pages",
       "serviceCostUsd": 0,
       "renderHours": null,
