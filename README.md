@@ -41,8 +41,8 @@ Schemas live in `src/content.config.ts`. A production build fails when frontmatt
 
 Keep a square source image in `src/assets/projects/` and reference it from the
 project's frontmatter, for example `icon: ../../assets/projects/modo.png`.
-For modo and fairway, `docs/icon.png` in the owning project repository is the
-canonical master; copy its selected revision here when updating the catalog.
+Each project repository holds the canonical artwork in its `assets/`; copy the
+selected revision here when updating the catalog.
 The card renders it beside the name at 40px; Astro creates small WebP files for
 standard and high-density screens. The field is optional, so a project can ship
 with just its name. Images are decorative to screen readers because the name
