@@ -28,6 +28,8 @@ const projects = projectsForTopic(await getCollection("projects"), topic);
     <h1>{label}</h1>
   </header>
   <div class="project-list">
-    {projects.map((project) => <ProjectCard project={project} />)}
+    {projects.map((project) => (
+      <ProjectCard project={project} />
+    ))}
   </div>
 </BaseLayout>

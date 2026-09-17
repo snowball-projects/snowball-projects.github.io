@@ -20,35 +20,33 @@ const authorFormatter = new Intl.ListFormat("en", {
 >
   <h1 class="visually-hidden">Blog</h1>
 
-  {
-    articles.length === 0 ? (
-      <p class="empty-state">Nothing published yet.</p>
-    ) : (
-      <ol class="article-list">
-        {articles.map((article) => (
-          <li>
-            <article>
-              <a class="article-pill" href={`/writing/${article.id}/`}>
-                <h2>{article.data.title}</h2>
-                <p class="article-summary">{article.data.summary}</p>
-                <p class="article-meta">
-                  <time datetime={article.data.publishedDate.toISOString()}>
-                    {article.data.publishedDate.toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                      timeZone: "UTC",
-                    })}
-                  </time>
-                  <span class="article-meta__authors">
-                    {authorFormatter.format(article.data.authors)}
-                  </span>
-                </p>
-              </a>
-            </article>
-          </li>
-        ))}
-      </ol>
-    )
-  }
+  {articles.length === 0 ? (
+    <p class="empty-state">Nothing published yet.</p>
+  ) : (
+    <ol class="article-list">
+      {articles.map((article) => (
+        <li>
+          <article>
+            <a class="article-pill" href={`/writing/${article.id}/`}>
+              <h2>{article.data.title}</h2>
+              <p class="article-summary">{article.data.summary}</p>
+              <p class="article-meta">
+                <time datetime={article.data.publishedDate.toISOString()}>
+                  {article.data.publishedDate.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    timeZone: "UTC",
+                  })}
+                </time>
+                <span class="article-meta__authors">
+                  {authorFormatter.format(article.data.authors)}
+                </span>
+              </p>
+            </a>
+          </article>
+        </li>
+      ))}
+    </ol>
+  )}
 </BaseLayout>

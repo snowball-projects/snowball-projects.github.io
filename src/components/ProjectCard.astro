@@ -33,28 +33,24 @@ const icon = project.data.icon
     aria-label={`${project.data.title} - open ${destination}`}
   >
     <Heading>
-      {
-        icon && (
-          <img
-            {...icon.attributes}
-            class="project-card__icon"
-            src={icon.src}
-            srcset={icon.srcSet.attribute}
-            alt=""
-          />
-        )
-      }
+      {icon && (
+        <img
+          {...icon.attributes}
+          class="project-card__icon"
+          src={icon.src}
+          srcset={icon.srcSet.attribute}
+          alt=""
+        />
+      )}
       <span>{project.data.title}</span>
     </Heading>
     <p>{project.data.summary}</p>
   </a>
   <ul class="project-card__topics" aria-label={`${project.data.title} topics`}>
-    {
-      project.data.topics.map((topic) => (
-        <li>
-          <a href={projectTopicHref(topic)}>{projectTopicLabels[topic]}</a>
-        </li>
-      ))
-    }
+    {project.data.topics.map((topic) => (
+      <li>
+        <a href={projectTopicHref(topic)}>{projectTopicLabels[topic]}</a>
+      </li>
+    ))}
   </ul>
 </article>

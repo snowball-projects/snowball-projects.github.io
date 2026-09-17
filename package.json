@@ -6,7 +6,7 @@
   "license": "MIT",
   "type": "module",
   "engines": {
-    "node": ">=22.12.0 <25"
+    "node": ">=24 <25"
   },
   "scripts": {
     "dev": "astro dev",
@@ -20,17 +20,17 @@
     "verify": "npm run test && npm run check && npm run format:check && npm run build"
   },
   "dependencies": {
-    "@astrojs/markdown-remark": "7.2.4",
-    "@astrojs/rss": "4.0.19",
-    "astro": "7.2.8",
-    "katex": "0.18.4",
-    "rehype-katex": "7.0.1",
-    "remark-math": "6.0.0"
+    "@astrojs/markdown-remark": "^7.3.1",
+    "@astrojs/rss": "^4.0.19",
+    "astro": "^7.3.3",
+    "katex": "^0.18.7",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0"
   },
   "devDependencies": {
-    "@astrojs/check": "0.9.10",
-    "prettier": "3.9.6",
-    "prettier-plugin-astro": "0.14.1",
+    "@astrojs/check": "^0.9.10",
+    "prettier": "^3.9.7",
+    "prettier-plugin-astro": "^1.0.0",
     "typescript": "6.0.3"
   }
 }

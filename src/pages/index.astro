@@ -16,6 +16,8 @@ const projects = (await getCollection("projects"))
   <h1 class="visually-hidden">snowball</h1>
 
   <div class="project-list">
-    {projects.map((project) => <ProjectCard project={project} />)}
+    {projects.map((project) => (
+      <ProjectCard project={project} />
+    ))}
   </div>
 </BaseLayout>

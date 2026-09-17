@@ -39,14 +39,12 @@ const isCurrent = (href: string) =>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    {
-      import.meta.env.PROD && (
-        <meta
-          http-equiv="Content-Security-Policy"
-          content={contentSecurityPolicy}
-        />
-      )
-    }
+    {import.meta.env.PROD && (
+      <meta
+        http-equiv="Content-Security-Policy"
+        content={contentSecurityPolicy}
+      />
+    )}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
@@ -65,7 +63,9 @@ const isCurrent = (href: string) =>
     <title>{pageTitle}</title>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content">
+      Skip to content
+    </a>
     <header class="site-header">
       <a class="site-name" href="/">
         <img
@@ -79,18 +79,16 @@ const isCurrent = (href: string) =>
       </a>
       <nav aria-label="Primary navigation">
         <ul>
-          {
-            navigation.map((item) => (
-              <li>
-                <a
-                  href={item.href}
-                  aria-current={isCurrent(item.href) ? "page" : undefined}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))
-          }
+          {navigation.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={isCurrent(item.href) ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
@@ -100,8 +98,12 @@ const isCurrent = (href: string) =>
     <footer class="site-footer">
       <nav aria-label="Footer navigation">
         <ul>
-          <li><a href="/about/">About</a></li>
-          <li><a href="https://github.com/snowball-projects">Source</a></li>
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="https://github.com/snowball-projects">Source</a>
+          </li>
         </ul>
       </nav>
     </footer>

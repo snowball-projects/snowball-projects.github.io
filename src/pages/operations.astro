@@ -55,21 +55,22 @@ const observed = new Intl.DateTimeFormat("en-US", {
     <h1>Operations</h1>
     <p>What it takes to keep snowball running.</p>
     <p class="operations-date">
-      {period} · Usage and costs checked <time datetime={snapshot.observedDate}
-        >{observed}</time
-      >
+      {period} · Usage and costs checked{" "}
+      <time datetime={snapshot.observedDate}>{observed}</time>
     </p>
   </header>
 
   <dl class="operations-totals">
     <div>
-      <dt>Service costs · month to date</dt><dd>
+      <dt>Service costs · month to date</dt>
+      <dd>
         {money(snapshot.serviceCostUsd)}
         <span>USD</span>
       </dd>
     </div>
     <div>
-      <dt>Funding received · month to date</dt><dd>
+      <dt>Funding received · month to date</dt>
+      <dd>
         {money(snapshot.fundingReceivedUsd)}
         <span>USD</span>
       </dd>
@@ -86,31 +87,29 @@ const observed = new Intl.DateTimeFormat("en-US", {
       {renderProjectList} share one Render workspace. Allowances reset monthly.
     </p>
     <ul class="operations-metrics">
-      {
-        snapshot.metrics.map((metric) => {
-          const percentage = metricPercent(metric.used, metric.limit);
-          return (
-            <li>
-              <div class="operations-metric-label">
-                <a href={metric.sourceUrl}>{metric.label}</a>
-                <span>
-                  {metric.used === null
-                    ? "Not recorded"
-                    : metric.used.toLocaleString("en-US")}{" "}
-                  / {metric.limit.toLocaleString("en-US")} {metric.unit}
-                </span>
-              </div>
-              {percentage !== null && (
-                <progress
-                  max="100"
-                  value={percentage}
-                  aria-label={`${metric.label}: ${metric.used} of ${metric.limit} ${metric.unit}`}
-                />
-              )}
-            </li>
-          );
-        })
-      }
+      {snapshot.metrics.map((metric) => {
+        const percentage = metricPercent(metric.used, metric.limit);
+        return (
+          <li>
+            <div class="operations-metric-label">
+              <a href={metric.sourceUrl}>{metric.label}</a>
+              <span>
+                {metric.used === null
+                  ? "Not recorded"
+                  : metric.used.toLocaleString("en-US")}{" "}
+                / {metric.limit.toLocaleString("en-US")} {metric.unit}
+              </span>
+            </div>
+            {percentage !== null && (
+              <progress
+                max="100"
+                value={percentage}
+                aria-label={`${metric.label}: ${metric.used} of ${metric.limit} ${metric.unit}`}
+              />
+            )}
+          </li>
+        );
+      })}
     </ul>
     <p class="operations-note">
       Observed in Render's billing dashboard. These are dated observations, not
@@ -121,9 +120,8 @@ const observed = new Intl.DateTimeFormat("en-US", {
       Free services sleep when idle and may take time to wake. Exhausting the
       shared hours suspends them until the next month. The workspace has no
       payment method; bandwidth or build overages suspend the affected service
-      or builds instead of adding charges. <a
-        href="https://render.com/docs/free">Provider limits</a
-      >.
+      or builds instead of adding charges.{" "}
+      <a href="https://render.com/docs/free">Provider limits</a>.
     </p>
   </section>
 
@@ -134,37 +132,35 @@ const observed = new Intl.DateTimeFormat("en-US", {
       currently needs a hosted database.
     </p>
     <div class="operations-projects">
-      {
-        snapshot.projects.map((entry) => {
-          const project = projectIndex.get(entry.id)!;
-          return (
-            <article class="operations-project" id={entry.id}>
-              <div class="operations-project-heading">
-                <h3>
-                  <a href={projectHref(project)}>{project.data.title}</a>
-                </h3>
-                <span>
-                  {money(entry.serviceCostUsd)}{" "}
-                  <span class="operations-note">USD</span>
-                </span>
-              </div>
-              <p class="operations-project-host">
-                {entry.hosting === "github-pages"
-                  ? "GitHub Pages · static site"
-                  : "Render Free · web service"}
-              </p>
-              <p class="operations-note">
-                {renderHoursLabel(entry.hosting, entry.renderHours)}
-              </p>
-              <details>
-                <summary>Resources and storage</summary>
-                <p>{entry.resources}</p>
-                <p>{entry.storage}</p>
-              </details>
-            </article>
-          );
-        })
-      }
+      {snapshot.projects.map((entry) => {
+        const project = projectIndex.get(entry.id)!;
+        return (
+          <article class="operations-project" id={entry.id}>
+            <div class="operations-project-heading">
+              <h3>
+                <a href={projectHref(project)}>{project.data.title}</a>
+              </h3>
+              <span>
+                {money(entry.serviceCostUsd)}{" "}
+                <span class="operations-note">USD</span>
+              </span>
+            </div>
+            <p class="operations-project-host">
+              {entry.hosting === "github-pages"
+                ? "GitHub Pages · static site"
+                : "Render Free · web service"}
+            </p>
+            <p class="operations-note">
+              {renderHoursLabel(entry.hosting, entry.renderHours)}
+            </p>
+            <details>
+              <summary>Resources and storage</summary>
+              <p>{entry.resources}</p>
+              <p>{entry.storage}</p>
+            </details>
+          </article>
+        );
+      })}
     </div>
     <p class="operations-note">
       This website also uses GitHub Pages. Free third-party APIs and map tiles
@@ -178,9 +174,9 @@ const observed = new Intl.DateTimeFormat("en-US", {
   >
     <h2 id="record-method">About this record</h2>
     <p>
-      {snapshot.financialSource} Service and resource facts are checked against the
-      owning repositories. Figures reflect this snapshot and can change before the
-      next update.
+      {snapshot.financialSource} Service and resource facts are checked against
+      the owning repositories. Figures reflect this snapshot and can change
+      before the next update.
     </p>
     <p>
       The project list reflects the current catalog. Usage and cost figures
@@ -189,10 +185,10 @@ const observed = new Intl.DateTimeFormat("en-US", {
       equivalents. The record is updated through reviewed source changes.
     </p>
     <p>
-      <a href="/operations.json">Download the record</a> · <a
-        href="https://github.com/snowball-projects/snowball-projects.github.io/blob/main/src/data/operations.json"
-        >Source and history</a
-      >
+      <a href="/operations.json">Download the record</a> ·{" "}
+      <a href="https://github.com/snowball-projects/snowball-projects.github.io/blob/main/src/data/operations.json">
+        Source and history
+      </a>
     </p>
   </section>
 </BaseLayout>

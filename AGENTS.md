@@ -68,9 +68,9 @@ project.
   approved. Credit software to snowball and identify Nas Delevski as its
   founder unless another role is necessary.
 - snowball software uses MIT. Verify public source and its actual license
-  before calling a project open source or licensed. Preserve `LICENSE`,
-  `NOTICE` and applicable third-party notices. Repositories own their licenses
-  and notices; third-party software and data retain their terms.
+  before calling a project open source or licensed. Preserve `LICENSE` and `public/THIRD-PARTY-NOTICES.txt`, which
+  ships with the site. Repositories own their own licenses and notices;
+  third-party software and data retain their terms.
 - Keep the reuse summary in `src/pages/about.astro` at `#licensing`.
 - Do not add AI-builder labels, production credits or AI author credits to
   public copy, metadata or the README.
