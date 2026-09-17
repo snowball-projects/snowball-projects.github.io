@@ -1,14 +1,8 @@
-export const projectTopicSlugs = [
-  "gaming",
-  "sports",
-  "geography",
-  "transport",
-] as const;
+export const projectTopicSlugs = ["sports", "geography", "transport"] as const;
 
 export type ProjectTopic = (typeof projectTopicSlugs)[number];
 
 export const projectTopicLabels: Record<ProjectTopic, string> = {
-  gaming: "Gaming",
   sports: "Sports",
   geography: "Geography",
   transport: "Transport",

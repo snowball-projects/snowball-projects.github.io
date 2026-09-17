@@ -39,7 +39,7 @@ Schemas live in `src/content.config.ts`. A production build fails when frontmatt
 
 ### Project topics
 
-Each project has one or more owner-approved `topics`: `gaming`, `sports`,
+Each project has one or more owner-approved `topics`: `sports`,
 `geography`, or `transport`. The schema rejects unknown and repeated
 values. These project subjects are separate from article topics, which remain
 free-form writing metadata.

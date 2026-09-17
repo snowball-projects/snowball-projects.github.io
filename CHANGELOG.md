@@ -1,9 +1,5 @@
 # Changes
 
-## 0.3.0
-
-- Add the teet dashboard to the catalog.
-
 ## 0.2.2
 
 - Publish the cave atlas project entry and patch website dependencies.

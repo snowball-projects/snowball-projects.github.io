@@ -56,7 +56,7 @@ test("rejects missing or duplicate project coverage and invalid financial observ
     parseOperations({
       ...snapshot,
       projects: snapshot.projects.map((p) =>
-        p.id === "choss" ? { ...p, renderHours: 0 } : p,
+        p.id === "sportsbro" ? { ...p, renderHours: 0 } : p,
       ),
     }),
   );
