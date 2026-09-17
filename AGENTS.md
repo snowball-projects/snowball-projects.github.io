@@ -39,8 +39,7 @@ project.
   inputs.
 - Cards open the verified live interface when present, otherwise the public
   repository; the content schema requires one of them. Keep cards compact with
-  one primary destination each. Owner-approved topic labels use separate links
-  to static topic views. Do not add separate Source links; source access
+  one primary destination each. Do not add separate Source links; source access
   belongs in the project itself.
 - Published dashboards require a live interface and published developer tools
   require GitHub. Do not claim an interface before deployment succeeds.

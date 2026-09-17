@@ -37,18 +37,6 @@ npm run verify
 
 Schemas live in `src/content.config.ts`. A production build fails when frontmatter does not match them.
 
-### Project topics
-
-Each project has one or more owner-approved `topics`: `sports`,
-`geography`, or `transport`. The schema rejects unknown and repeated
-values. These project subjects are separate from article topics, which remain
-free-form writing metadata.
-
-The homepage shows every published project alphabetically. Small topic links
-inside each card open static `/topics/<topic>/` pages with the same cards and an
-“All projects” link. The main card link still opens the project itself; topic
-links are separate anchors. There is no client-side filtering or tracking.
-
 ### Project icons
 
 Keep a square source image in `src/assets/projects/` and reference it from the

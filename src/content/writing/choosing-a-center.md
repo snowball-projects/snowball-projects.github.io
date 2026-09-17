@@ -9,7 +9,6 @@ authors:
 topics:
   - graph-theory
   - optimization
-project: modo
 draft: false
 ---
 

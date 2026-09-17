@@ -161,10 +161,6 @@ main {
 }
 
 main.home,
-main.topic-page {
-  padding-block: clamp(1.5rem, 4vh, 2.5rem);
-}
-
 .site-footer {
   display: flex;
   justify-content: flex-end;
@@ -174,7 +170,8 @@ main.topic-page {
 
 .project-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Fits as many columns as the viewport allows, down to one on a phone. */
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 0.75rem;
 }
 
@@ -240,47 +237,6 @@ main.topic-page {
 
 .project-card__link:hover p {
   color: #c8d0d2;
-}
-
-.project-card__topics {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 0.5rem;
-  padding: 0 1.25rem 0.75rem;
-  margin: 0;
-  list-style: none;
-}
-
-.project-card__topics a {
-  display: inline-flex;
-  min-height: 1.5rem;
-  align-items: center;
-  padding: 0 0.5rem;
-  border: 1px solid var(--line);
-  border-radius: 1rem;
-  color: var(--muted);
-  font-size: 0.75rem;
-  text-decoration: none;
-}
-
-.project-card__topics a:hover,
-.project-card__topics a:focus-visible {
-  color: var(--ink);
-  border-color: var(--accent);
-}
-
-.topic-heading {
-  margin-bottom: 1.5rem;
-}
-
-.topic-heading > a {
-  color: var(--muted);
-  font-size: 0.88rem;
-}
-
-.topic-heading h1 {
-  margin-top: 0.75rem;
-  font-size: clamp(2rem, 5vw, 3rem);
 }
 
 .prose {
@@ -481,10 +437,6 @@ main.principles-page {
 @media (max-width: 46rem) {
   .site-header {
     min-height: 5rem;
-  }
-
-  .project-list {
-    grid-template-columns: 1fr;
   }
 
   .article-pill,

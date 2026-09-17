@@ -41,12 +41,12 @@
       "storage": "Bundled data and temporary process state; no hosted database."
     },
     {
-      "id": "modo",
-      "hosting": "render-free",
+      "id": "kickoff",
+      "hosting": "github-pages",
       "serviceCostUsd": 0,
       "renderHours": null,
-      "resources": "Python service over a bundled Chicago road snapshot. Map tiles and address lookup.",
-      "storage": "Bundled road data and temporary process state; no hosted database."
+      "resources": "Static files and reviewed schedule snapshots. No live sports feed.",
+      "storage": "Interests saved in the browser; no hosted database."
     },
     {
       "id": "sideline",
@@ -55,14 +55,6 @@
       "renderHours": null,
       "resources": "Static site with shared hourly nflverse data collection on GitHub Actions. Source updates and coverage may lag.",
       "storage": "Published data files; no hosted database."
-    },
-    {
-      "id": "sportsbro",
-      "hosting": "github-pages",
-      "serviceCostUsd": 0,
-      "renderHours": null,
-      "resources": "Static files and reviewed schedule snapshots. No live sports feed.",
-      "storage": "Interests saved in the browser; no hosted database."
     }
   ]
 }
