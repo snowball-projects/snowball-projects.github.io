@@ -1,6 +1,6 @@
 # Changes
 
-## 0.4.0 — pending review
+## 0.4.0 — 2026-10-18
 
 - Reconcile the 30 commits since v0.3.0: the active catalog is fairway, kickoff
   and sideline, with compact cards and verified live destinations. Retired
@@ -9,7 +9,8 @@
 - Record the dated operating snapshot and distinguish its September 11 costs,
   usage and hosting from separately dated resource descriptions. Describe
   kickoff’s weekly schedule ingestion and fairway’s static Pages catalog and
-  separate calculation API. No current costs have been inferred.
+  separate calculation API. Describe sideline’s scheduled collection without
+  tying static hosting to a refresh frequency. No current costs have been inferred.
 - Refresh vulnerable build dependencies and share the patched KaTeX version
   across Markdown plugins, with math compatibility and trust-boundary tests.
 - Check the generated site for scripts and inline handlers, malformed and
@@ -19,8 +20,6 @@
   the build.
 - Correct the README’s project icon example and document dependency checks and
   GitHub Pages’ HTTP-header constraints.
-
-This version is prepared for manual review; no tag or release is published.
 
 ## 0.3.0
 

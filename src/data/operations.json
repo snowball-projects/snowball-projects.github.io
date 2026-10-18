@@ -53,7 +53,7 @@
       "hosting": "github-pages",
       "serviceCostUsd": 0,
       "renderHours": null,
-      "resources": "Static site with shared hourly nflverse data collection on GitHub Actions. Source updates and coverage may lag.",
+      "resources": "Static site with shared scheduled nflverse data collection on GitHub Actions. Source updates and coverage may lag.",
       "storage": "Published data files; no hosted database."
     }
   ],
