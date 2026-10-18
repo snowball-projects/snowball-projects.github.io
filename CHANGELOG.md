@@ -1,5 +1,10 @@
 # Changes
 
+## Unreleased
+
+- Regenerate rendered content during production builds so cached Markdown output
+  cannot survive a renderer dependency update. Retain optimized-image caching.
+
 ## 0.4.0 — 2026-10-18
 
 - Reconcile the 30 commits since v0.3.0: the active catalog is fairway, kickoff
