@@ -81,6 +81,16 @@ enforced by adding a meta tag or a `_headers` file here.
 
 ## Deployment
 
+Production builds use `astro build --force` to regenerate the content store.
+The deploy action can restore Astro’s cache from an older commit; unchanged
+Markdown otherwise reuses rendered HTML even when a Markdown plugin or KaTeX
+changes. Clearing the content store at build time makes the installed renderer
+process the source again. Optimized-image and npm download caches remain usable.
+
+The build-cache regression test uses an isolated temporary site: it seeds stale
+rendered HTML, confirms an ordinary Astro build reuses it, then checks that
+`npm run build` reproduces the clean output without editing the Markdown.
+
 `.github/workflows/deploy.yml` verifies, builds, and deploys after a push to `main`. In repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.
 
 ## License and contributions
