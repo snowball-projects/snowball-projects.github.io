@@ -61,3 +61,24 @@ test("rejects missing or duplicate project coverage and invalid financial observ
     }),
   );
 });
+
+test("dates resource descriptions separately without relabelling financial observations", () => {
+  const updated = parseOperations({
+    ...snapshot,
+    resourcesObservedDate: "2026-10-18",
+  });
+  assert.equal(updated.observedDate, snapshot.observedDate);
+  assert.equal(updated.period, snapshot.period);
+  assert.equal(updated.serviceCostUsd, snapshot.serviceCostUsd);
+  assert.equal(
+    parseOperations({ ...snapshot, resourcesObservedDate: "2026-09-10" })
+      .observedDate,
+    snapshot.observedDate,
+  );
+  assert.throws(() =>
+    parseOperations({
+      ...snapshot,
+      resourcesObservedDate: "2026-02-30",
+    }),
+  );
+});

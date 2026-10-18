@@ -40,7 +40,7 @@ Schemas live in `src/content.config.ts`. A production build fails when frontmatt
 ### Project icons
 
 Keep a square source image in `src/assets/projects/` and reference it from the
-project's frontmatter, for example `icon: ../../assets/projects/modo.png`.
+project's frontmatter, for example `icon: ../../assets/projects/kickoff.png`.
 Each project repository holds the canonical artwork in its `assets/`; copy the
 selected revision here when updating the catalog.
 The card renders it beside the name at 40px; Astro creates small WebP files for
@@ -65,6 +65,19 @@ and inspect the cards on a narrow screen and with keyboard focus before publishi
 The public [Operations page](https://snowball-projects.github.io/operations/)
 uses one dated snapshot for costs and shared resource use. Follow
 [the update procedure](docs/OPERATIONS-RECORD.md) when refreshing it.
+
+## Dependencies and security
+
+Run `npm audit` with the verification suite when updating dependencies. The
+`katex` override shares the patched direct version with the Markdown plugins,
+whose upstream ranges still select the older 0.16 line. Math tests exercise the
+plugins together, including untrusted links and raw HTML; keep those checks and
+the shipped KaTeX CSS, fonts and license aligned when changing the override.
+
+GitHub Pages controls HTTP response headers. The production layout supplies a
+script-free CSP through a meta element; the build verifies it. Header-only
+policies such as CSP `frame-ancestors` require hosting support and cannot be
+enforced by adding a meta tag or a `_headers` file here.
 
 ## Deployment
 

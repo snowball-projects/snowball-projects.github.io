@@ -1,6 +1,6 @@
 {
   "name": "snowball-site",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "author": "Nas Delevski",
   "license": "MIT",
@@ -32,5 +32,8 @@
     "prettier": "^3.9.7",
     "prettier-plugin-astro": "^1.0.0",
     "typescript": "6.0.3"
+  },
+  "overrides": {
+    "katex": "$katex"
   }
 }

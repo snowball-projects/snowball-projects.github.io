@@ -145,7 +145,10 @@ function resolveOutputTarget(rawValue, sourcePublicPath) {
     return { error: `insecure site URL "${rawValue}"` };
   }
 
-  if (url.origin !== siteOrigin || separateProjectSites.has(url.href)) {
+  if (
+    url.origin !== siteOrigin ||
+    separateProjectSites.has(`${url.origin}${url.pathname}`)
+  ) {
     return {};
   }
 
@@ -192,11 +195,16 @@ function checkReference(rawValue, sourcePublicPath, sourceLabel, outputFiles) {
 
   if (resolution.hash && target.endsWith(".html")) {
     const targetHtml = outputFiles.get(target);
-    const fragment = decodeURIComponent(resolution.hash.slice(1));
+    let fragment;
+    try {
+      fragment = decodeURIComponent(resolution.hash.slice(1));
+    } catch {
+      errors.push(`${sourceLabel}: invalid encoded fragment "${rawValue}"`);
+      return;
+    }
     const escapedFragment = fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const fragmentPattern = new RegExp(
       `\\s(?:id|name)=["']${escapedFragment}["']`,
-      "i",
     );
 
     if (!fragmentPattern.test(targetHtml)) {
@@ -209,6 +217,15 @@ function checkHtml(file, html, outputFiles) {
   const label = outputRelativePath(file);
   const publicPath = publicPathForFile(file);
   const isRedirect = /<meta\b[^>]*http-equiv=["']refresh["']/i.test(html);
+
+  if (/<script\b/i.test(html)) {
+    errors.push(`${label}: scripts are forbidden in the static output`);
+  }
+  for (const tag of html.matchAll(/<[a-z][^>]*>/gi)) {
+    if (/\son[a-z]+\s*=/i.test(tag[0])) {
+      errors.push(`${label}: inline event handlers are forbidden`);
+    }
+  }
 
   if (!isRedirect) {
     const htmlTag = html.match(/<html\b[^>]*>/i)?.[0];
@@ -241,6 +258,10 @@ function checkHtml(file, html, outputFiles) {
 
     if (getAttribute(mainTag ?? "", "id") !== "main-content") {
       errors.push(`${label}: <main> must be the skip-link target`);
+    }
+
+    if (getAttribute(mainTag ?? "", "tabindex") !== "-1") {
+      errors.push(`${label}: <main> must accept focus from the skip link`);
     }
 
     const headings = [...html.matchAll(/<h([1-6])\b[^>]*>(.*?)<\/h\1>/gis)];
