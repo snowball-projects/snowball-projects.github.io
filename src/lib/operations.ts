@@ -11,6 +11,7 @@ const operationsSchema = z
   .object({
     period: z.string().regex(/^\d{4}-(0[1-9]|1[0-2])$/),
     observedDate: z.iso.date(),
+    resourcesObservedDate: z.iso.date(),
     currency: z.literal("USD"),
     serviceCostUsd: nonnegative,
     fundingReceivedUsd: nonnegative,

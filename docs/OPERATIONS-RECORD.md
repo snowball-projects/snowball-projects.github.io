@@ -3,7 +3,7 @@
 `src/data/operations.json` is the single canonical source for `/operations/` and
 the generated `/operations.json` download. Each published project has one entry
 and a stable `/operations/#<project-id>` link. Project apps link there from their
-existing About/help/footer surface. This site and topic views remain static.
+existing About/help/footer surface. This site remains static.
 
 To refresh, inspect the relevant provider account read-only, record the reporting
 month and observation date, and update verified values only. Shared workspace
@@ -33,3 +33,9 @@ The project inventory follows the active catalog. When a project leaves the
 catalog its entry is removed rather than refreshed, and earlier observation
 dates and values are never relabelled as current. Historical project entries
 remain in Git history.
+
+`resourcesObservedDate` dates repository checks of resource and storage
+descriptions separately from the financial `observedDate`. Updating descriptions
+does not refresh costs, usage, quotas or historical hosting labels. The October 18,
+2026 review confirmed kickoff’s weekly ingestion and fairway’s public Pages
+catalog with its separate calculation API; it did not inspect provider billing.

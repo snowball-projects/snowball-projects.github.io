@@ -38,12 +38,18 @@ const period = new Intl.DateTimeFormat("en-US", {
   year: "numeric",
   timeZone: "UTC",
 }).format(new Date(`${snapshot.period}-01T00:00:00Z`));
-const observed = new Intl.DateTimeFormat("en-US", {
+const dateFormat = new Intl.DateTimeFormat("en-US", {
   month: "long",
   day: "numeric",
   year: "numeric",
   timeZone: "UTC",
-}).format(new Date(`${snapshot.observedDate}T00:00:00Z`));
+});
+const observed = dateFormat.format(
+  new Date(`${snapshot.observedDate}T00:00:00Z`),
+);
+const resourcesObserved = dateFormat.format(
+  new Date(`${snapshot.resourcesObservedDate}T00:00:00Z`),
+);
 ---
 
 <BaseLayout
@@ -55,7 +61,7 @@ const observed = new Intl.DateTimeFormat("en-US", {
     <h1>Operations</h1>
     <p>What it takes to keep snowball running.</p>
     <p class="operations-date">
-      {period} · Usage and costs checked{" "}
+      Historical snapshot · {period} · Usage and costs checked{" "}
       <time datetime={snapshot.observedDate}>{observed}</time>
     </p>
   </header>
@@ -77,14 +83,16 @@ const observed = new Intl.DateTimeFormat("en-US", {
     </div>
   </dl>
   <p class="operations-note">
-    Free hosting and services. These totals cover running the published
-    projects, excluding personal hardware, electricity and development tools.
+    These historical totals cover the published projects through the observation
+    date, excluding personal hardware, electricity and development tools.
+    Current costs and usage have not been rechecked.
   </p>
 
   <section class="operations-section" aria-labelledby="shared-resources">
     <h2 id="shared-resources">Shared resources</h2>
     <p>
-      {renderProjectList} share one Render workspace. Allowances reset monthly.
+      {renderProjectList} used the shared Render workspace in this cost
+      snapshot. Allowances reset monthly.
     </p>
     <ul class="operations-metrics">
       {snapshot.metrics.map((metric) => {
@@ -117,10 +125,10 @@ const observed = new Intl.DateTimeFormat("en-US", {
       established.
     </p>
     <p class="operations-note">
-      Free services sleep when idle and may take time to wake. Exhausting the
-      shared hours suspends them until the next month. The workspace has no
-      payment method; bandwidth or build overages suspend the affected service
-      or builds instead of adding charges.{" "}
+      At the observation date, free services slept when idle and could take time
+      to wake. Exhausting the shared hours suspended them until the next month.
+      The workspace had no payment method; bandwidth or build overages suspended
+      the affected service or builds instead of adding charges.{" "}
       <a href="https://render.com/docs/free">Provider limits</a>.
     </p>
   </section>
@@ -128,8 +136,10 @@ const observed = new Intl.DateTimeFormat("en-US", {
   <section class="operations-section" aria-labelledby="project-resources">
     <h2 id="project-resources">Projects</h2>
     <p>
-      Static sites use GitHub Pages. Hosted services use Render Free. No project
-      currently needs a hosted database.
+      Hosting labels and costs retain the financial observation date. Resource
+      descriptions were checked against the owning repositories on{" "}
+      <time datetime={snapshot.resourcesObservedDate}>{resourcesObserved}</time>
+      .
     </p>
     <div class="operations-projects">
       {snapshot.projects.map((entry) => {
@@ -147,8 +157,8 @@ const observed = new Intl.DateTimeFormat("en-US", {
             </div>
             <p class="operations-project-host">
               {entry.hosting === "github-pages"
-                ? "GitHub Pages · static site"
-                : "Render Free · web service"}
+                ? "Snapshot hosting: GitHub Pages · static site"
+                : "Snapshot hosting: Render Free · web service"}
             </p>
             <p class="operations-note">
               {renderHoursLabel(entry.hosting, entry.renderHours)}
@@ -174,9 +184,8 @@ const observed = new Intl.DateTimeFormat("en-US", {
   >
     <h2 id="record-method">About this record</h2>
     <p>
-      {snapshot.financialSource} Service and resource facts are checked against
-      the owning repositories. Figures reflect this snapshot and can change
-      before the next update.
+      {snapshot.financialSource} Financial figures and shared allowances reflect
+      the historical snapshot, not current provider limits or charges.
     </p>
     <p>
       The project list reflects the current catalog. Usage and cost figures
