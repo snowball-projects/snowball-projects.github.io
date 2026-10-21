@@ -7,7 +7,7 @@ pageClass: principles-page
 
 <h1 class="visually-hidden">Principles</h1>
 
-Working principles, refined through experience.
+Working principles for snowball's projects:
 
 1. Free to use
 2. Everything is open and public: code, data, costs, & funding
