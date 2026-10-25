@@ -1,77 +1,46 @@
-# snowball website
+# snowball rules
+Stage
+- Early-stage project with one user, the founder. Build for that.
+  No guards, migrations, compatibility code, release processes or docs
+  for users who don't exist yet.
 
-The public catalog of snowball's projects, plus its blog, principles and
-operations record. Each project's own repository stays canonical for that
-project.
+Design
+- Choose the simplest, least costly design that works, in everything:
+  architecture, hosting, backend, frontend and data.
+- Within that, make it as fast and light as possible.
+- When there are several reasonable ways to do something that matters,
+  propose the best 2 or 3 with their trade-offs, recommend one, and
+  wait for the founder to choose. Make small choices yourself and
+  mention them.
 
-## Scope and sources
+Less is more
+- Prefer deleting to adding. At the end of each task, say what can now
+  be removed, and remove it if it is in scope.
+- No dead code, old experiments, research notes or drafts in the repo.
+  Tag anything worth keeping, then delete it.
+- Validate data once, where it is produced. Trust our own files.
+- Keep the README to one screen, written for a person. Add no other
+  docs unless asked, and don't edit AGENTS.md unless asked.
 
-- Read `src/pages/principles.md` before changes to public claims, product
-  direction, data, architecture, operations or stewardship. It is provisional
-  but canonical; do not silently rewrite, expand or duplicate it.
-- Read the existing diff before editing and preserve unrelated work.
-- snowball is founder-led. Contributions may be welcome; final product
-  direction remains with the founder. Do not invent a mission, movement or
-  community consensus.
-- Projects are peers. Do not invent flagship, featured, legacy or secondary
-  tiers. Classify only from an owner-approved source and keep unclassified work
-  neutral.
-- The catalog lists snowball's active projects only. Adding one is an owner
-  decision, not an inference from an older document.
+Work
+- Keep each PR to one coherent piece of work, then stop and report.
+- Ask the founder first before anything irreversible (force-push,
+  deleting unmerged work, changing repo settings, spending money) or
+  any change of direction (new architecture, new service, change of
+  scope). Otherwise proceed, and merge when checks pass.
+- GitHub is the source of truth. Push all work; nothing lives only on
+  one machine.
 
-## Development and verification
+Public copy and data
+- Write snowball and every project name in lowercase.
+- Never label anything as made by or with AI, anywhere.
+- Never use em dashes.
+- Code is MIT. Data we create is CC0. Data from others keeps its
+  source's license and credit.
+- Store each fact with its source link and the date checked, never
+  copies of other sites' pages.
+- Principles: https://snowball-projects.github.io/principles/
 
-- Use Node 24 (`nvm use`) and `npm ci`; keep the lockfile authoritative.
-- `npm run dev` starts a preview. `npm run verify` runs unit tests, Astro and
-  content checks, formatting, the production build, and generated-link,
-  accessibility and notice checks. Run it before publishing.
-- Add tests for behavior and regressions, not prose snapshots.
-- Schemas live in `src/content.config.ts`; shared content and destination
-  checks live in `src/lib/`. Validate at these boundaries.
-
-## Content and interface
-
-- Keep public surfaces terse, project-first and static. Avoid promotional
-  heroes, repeated explanations, ornamental navigation and platform features.
-  Add dependencies or infrastructure only for demonstrated needs.
-- Distinguish current behavior, experiments and future ideas. Explain
-  calculations and consequential tradeoffs; fail clearly on insufficient
-  inputs.
-- Cards open the verified live interface when present, otherwise the public
-  repository; the content schema requires one of them. Keep cards compact with
-  one primary destination each. Do not add separate Source links; source access
-  belongs in the project itself.
-- Published dashboards require a live interface and published developer tools
-  require GitHub. Do not claim an interface before deployment succeeds.
-- Treat Writing as snowball's blog. Store `authors` as a nonempty list and
-  render names only. Connect articles with `project` frontmatter instead of
-  duplicating project documentation. Keep the writing index a plain
-  reverse-chronological stack with no page title or promotional copy.
-- Preserve keyboard access, visible focus, narrow layouts, reduced motion and
-  the script-free production CSP.
-
-## Publication
-
-- Keep drafts outside this public repository. `draft: true` hides build output,
-  not Git source. Publish with owner authorization; preserve slugs and
-  `publishedDate`, and set `updatedDate` for approved revisions.
-- Pushes to `main` deploy through `.github/workflows/deploy.yml`. Verify the
-  workflow and live routes before reporting publication. Tie releases to a
-  verified commit; do not force-push shared history.
-- Never commit secrets, private drafts, analytics, advertising or tracking.
-
-## Stewardship
-
-- Write `snowball` and every project name in lowercase. Prefer single-word, lowercase
-  product names where practical; keep existing names until a rename is
-  approved. Credit software to snowball and identify Nas Delevski as its
-  founder unless another role is necessary.
-- snowball software uses MIT. Verify public source and its actual license
-  before calling a project open source or licensed. Preserve `LICENSE` and `public/THIRD-PARTY-NOTICES.txt`, which
-  ships with the site. Repositories own their own licenses and notices;
-  third-party software and data retain their terms.
-- Keep the reuse summary in `src/pages/about.astro` at `#licensing`.
-- Do not add AI-builder labels, production credits or AI author credits to
-  public copy, metadata or the README.
-- `CLAUDE.md` imports this file. Keep detailed procedures in the README and
-  durable agent rules here.
+## Repo notes
+The public snowball project catalog, blog and principles website.
+Checks: `npm run test`; `npm run check`; `npm run build`.
