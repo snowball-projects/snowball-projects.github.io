@@ -1,101 +1,24 @@
 # snowball
 
-Source for [snowball](https://snowball-projects.github.io), a founder-led collection of opinionated software and related technical writing.
+[snowball](https://snowball-projects.github.io) is an open-source software lab making free apps.
 
-The site is built with Astro and Markdown content collections, contains no client-side JavaScript, and deploys to GitHub Pages from `main`.
+A static Astro site with home, principles, operations, and about pages. No client-side JavaScript.
 
 ## Run
 
-Use Node 24 and install the locked dependencies:
+Use Node 24:
 
 ```sh
-nvm use
 npm ci
 npm run dev
-```
-
-Run the complete check suite with:
-
-```sh
 npm run verify
 ```
 
-## Content
+Project summaries, links, and icons live in `src/content/projects/` and `src/assets/projects/`.
+Page content lives in `src/pages/`. Update the costs, funding, and checked date in `operations.md` together.
 
-- Put only publication-ready records in `src/content/projects/` and `src/content/writing/`. Keep working drafts elsewhere; `draft: true` excludes a record.
-- Treat projects as peers. Add `liveUrl` only after deployment. Cards link to the live interface when present, otherwise the public repository; source repositories remain canonical.
-- Article `authors` are displayed by name, without a role label. The optional `project` field adds a title-only project link, and published writing appears in `/rss.xml`.
-- Use the single template in the private writing workspace. Both sites accept
-  the same article properties; this site requires `destination: snowball`.
-  Copy approved Markdown unchanged, keeping the filename as its URL slug.
-- Keep `authors` and `topics` as lists. `publishedDate` is required;
-  `updatedDate` and `project` are optional. A project reference must resolve to a
-  published catalog entry. Personal writing belongs on the personal website.
-- Keep Principles canonical in `src/pages/principles.md` and the licensing
-  summary in `src/pages/about.astro#licensing`. Link to them instead of
-  duplicating them.
+Pull requests run the existing tests, Astro checks, formatting, and production build.
+Pushes to `main` deploy to GitHub Pages.
 
-Schemas live in `src/content.config.ts`. A production build fails when frontmatter does not match them.
-
-### Project icons
-
-Keep a square source image in `src/assets/projects/` and reference it from the
-project's frontmatter, for example `icon: ../../assets/projects/kickoff.png`.
-Each project repository holds the canonical artwork in its `assets/`; copy the
-selected revision here when updating the catalog.
-The card renders it beside the name at 40px; Astro creates small WebP files for
-standard and high-density screens. The field is optional, so a project can ship
-with just its name. Images are decorative to screen readers because the name
-already identifies the project.
-
-Choose one recognizable object from the project's purpose or audience. Keep
-rounded contours, restrained color, gentle shading, a transparent background,
-and enough simplicity to read at card size. Use an existing icon as a style
-reference and judge new work beside the whole set on the dark cards. Preserve
-the original snowball mark as its own identity.
-
-Each project repository keeps its icon's generation prompt in `assets/PROMPT.md`
-beside the full-resolution artwork; the images here are card-sized derivatives.
-For an iteration, change one thing at a time, keep a candidate under a new name,
-and update the project's image reference when selected. Run `npm run verify`
-and inspect the cards on a narrow screen and with keyboard focus before publishing.
-
-## Operations record
-
-The public [Operations page](https://snowball-projects.github.io/operations/)
-uses one dated snapshot for costs and shared resource use. Follow
-[the update procedure](docs/OPERATIONS-RECORD.md) when refreshing it.
-
-## Dependencies and security
-
-Run `npm audit` with the verification suite when updating dependencies. The
-`katex` override shares the patched direct version with the Markdown plugins,
-whose upstream ranges still select the older 0.16 line. Math tests exercise the
-plugins together, including untrusted links and raw HTML; keep those checks and
-the shipped KaTeX CSS, fonts and license aligned when changing the override.
-
-GitHub Pages controls HTTP response headers. The production layout supplies a
-script-free CSP through a meta element; the build verifies it. Header-only
-policies such as CSP `frame-ancestors` require hosting support and cannot be
-enforced by adding a meta tag or a `_headers` file here.
-
-## Deployment
-
-Production builds use `astro build --force` to regenerate the content store.
-The deploy action can restore Astro’s cache from an older commit; unchanged
-Markdown otherwise reuses rendered HTML even when a Markdown plugin or KaTeX
-changes. Clearing the content store at build time makes the installed renderer
-process the source again. Optimized-image and npm download caches remain usable.
-
-The build-cache regression test uses an isolated temporary site: it seeds stale
-rendered HTML, confirms an ordinary Astro build reuses it, then checks that
-`npm run build` reproduces the clean output without editing the Markdown.
-
-`.github/workflows/deploy.yml` verifies, builds, and deploys after a push to `main`. In repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.
-
-## License and contributions
-
-This repository's source is licensed under the [MIT License](LICENSE); the
-articles under `src/content/writing/` are not licensed for reuse. See
-[third-party notices](public/THIRD-PARTY-NOTICES.txt) for attribution, [CONTRIBUTING.md](https://github.com/snowball-projects/.github/blob/main/CONTRIBUTING.md) before
-submitting work, and the [licensing summary](https://snowball-projects.github.io/about/#licensing).
+Code is [MIT](LICENSE). See the [licensing summary](https://snowball-projects.github.io/about/#licensing)
+and [contribution guidance](https://github.com/snowball-projects/.github/blob/main/CONTRIBUTING.md).
