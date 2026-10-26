@@ -31,29 +31,4 @@ const projects = defineCollection({
       }),
 });
 
-const writing = defineCollection({
-  loader: glob({ base: "./src/content/writing", pattern: "**/*.md" }),
-  schema: z
-    .object({
-      title: nonemptyText,
-      summary: nonemptyText,
-      destination: z.literal("snowball"),
-      publishedDate: z.coerce.date(),
-      updatedDate: z.coerce.date().optional(),
-      authors: z.array(nonemptyText).min(1),
-      topics: z.array(nonemptyText).default([]),
-      project: nonemptyText.optional(),
-      draft: z.boolean().default(false),
-    })
-    .strict()
-    .refine(
-      ({ publishedDate, updatedDate }) =>
-        !updatedDate || updatedDate >= publishedDate,
-      {
-        message: "updatedDate cannot be earlier than publishedDate.",
-        path: ["updatedDate"],
-      },
-    ),
-});
-
-export const collections = { projects, writing };
+export const collections = { projects };

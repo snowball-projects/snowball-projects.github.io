@@ -11,7 +11,6 @@ const { title, description, mainClass } = Astro.props;
 const pageTitle = title === "snowball" ? title : `${title} - snowball`;
 const path = Astro.url.pathname;
 const navigation = [
-  { href: "/writing/", label: "Blog" },
   { href: "/operations/", label: "Operations" },
   { href: "/principles/", label: "Principles" },
 ];
@@ -53,12 +52,6 @@ const isCurrent = (href: string) =>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="snowball blog"
-      href="/rss.xml"
-    />
     <link rel="canonical" href={Astro.url} />
     <title>{pageTitle}</title>
   </head>
