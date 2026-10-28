@@ -1,0 +1,1 @@
+The fairway course catalog is © OpenStreetMap contributors, licensed under the [Open Database License (ODbL) 1.0](https://opendatacommons.org/licenses/odbl/1-0/). Data we create from scratch is [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
