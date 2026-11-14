@@ -20,7 +20,7 @@
     "verify": "npm run test && npm run check && npm run format:check && npm run build"
   },
   "dependencies": {
-    "astro": "^7.3.3"
+    "astro": "^7.4.7"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
